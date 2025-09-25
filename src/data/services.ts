@@ -26,7 +26,7 @@ const services: Service[] = [
       "Design-to-engineering parity",
       "Documentation and handover kits",
     ],
-    priceRange: "5K - 5K",
+    priceRange: "15K - 35K",
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const services: Service[] = [
       "Automated insights and reporting",
       "Safe guardrails for enterprise teams",
     ],
-    priceRange: "2K - 8K",
+    priceRange: "12K - 28K",
   },
   {
     id: 3,
@@ -64,7 +64,7 @@ const services: Service[] = [
       "Design to dev handoff in hours",
       "Improved usability metrics",
     ],
-    priceRange: "K - 2K",
+    priceRange: "8K - 22K",
   },
   {
     id: 4,
@@ -83,7 +83,7 @@ const services: Service[] = [
       "Reusable course library",
       "Quantified skill improvement",
     ],
-    priceRange: "8K - 0K",
+    priceRange: "18K - 50K",
   },
 ];
 

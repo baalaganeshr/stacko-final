@@ -14,28 +14,49 @@ const CTASection = () => {
             
             <div className="relative grid gap-12 px-12 py-[clamp(5rem,8vw,7rem)] text-center md:px-20 lg:px-24">
               <div className="space-y-8">
-                <p className="text-xs uppercase tracking-[0.45em] text-secondary-500">Launch with STACKO</p>
-                <h2 className="balanced-text text-[clamp(2.8rem,5vw,4.2rem)] font-semibold text-white leading-[1.1]">
-                  Ready to learn, build, and stay ahead?
+                <p className="text-xs uppercase tracking-[0.45em] text-white/60 font-semibold">Professional Development</p>
+                <h2 className="balanced-text text-[clamp(3rem,5.5vw,4.5rem)] font-bold text-white leading-[1.05]">
+                  Advance Your Technology Career
                 </h2>
-                <p className="mx-auto max-w-4xl text-lead leading-relaxed text-white/85">
-                  Join a cohort, plug our engineers into your roadmap, or bring STACKO internships to your campus. We craft experiences that feel like the future.
-                </p>
+                <div className="mx-auto max-w-4xl space-y-4">
+                  <p className="text-xl leading-relaxed text-white/90">
+                    Join over 1,200 professionals who have advanced their careers through our comprehensive training programs.
+                  </p>
+                  <p className="text-lg text-white/80">
+                    Whether you're looking to enhance your technical skills or implement enterprise solutions, our proven curriculum and industry partnerships provide the foundation for long-term success.
+                  </p>
+                </div>
               </div>
               
               <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
                 <Link 
                   to="/signup" 
-                  className="glass-button hover-lift rounded-full px-10 py-4 text-sm font-semibold uppercase tracking-[0.2em] min-w-[280px] sm:min-w-auto"
+                  className="glass-button hover-lift rounded px-12 py-4 text-base font-semibold uppercase tracking-[0.1em] min-w-[280px] sm:min-w-auto border border-white/20 hover:border-white/40"
                 >
-                  Start a free learning account
+                  Request Information
                 </Link>
                 <Link
                   to="/contact"
-                  className="hover-lift rounded-full border border-white/25 px-10 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-secondary-500/60 hover:bg-white/5 min-w-[280px] sm:min-w-auto"
+                  className="hover-lift rounded border border-white/30 px-12 py-4 text-base font-semibold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5 min-w-[280px] sm:min-w-auto"
                 >
-                  Schedule a consultation
+                  Enterprise Consultation
                 </Link>
+              </div>
+              
+              {/* Professional Trust Elements */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+                <div className="text-center">
+                  <p className="text-sm text-white/90 font-medium mb-1">Quick Application Process</p>
+                  <p className="text-xs text-white/70">Complete evaluation in under 10 minutes</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-sm text-white/90 font-medium mb-1">Industry Expert Faculty</p>
+                  <p className="text-xs text-white/70">Senior developers from Fortune 500 companies</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-sm text-white/90 font-medium mb-1">Proven Success Rate</p>
+                  <p className="text-xs text-white/70">94% career advancement within 90 days</p>
+                </div>
               </div>
               
               {/* Trust indicators */}

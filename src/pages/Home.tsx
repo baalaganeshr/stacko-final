@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import Hero from "@/components/Hero";
+import TrustIndicators from "@/components/TrustIndicators";
 import CourseShowcase from "@/components/CourseShowcase";
 import StatsShowcase from "@/components/StatsShowcase";
 import SuccessStories from "@/components/SuccessStories";
@@ -6,12 +8,69 @@ import ServicesHighlight from "@/components/ServicesHighlight";
 import TeamShowcase from "@/components/TeamShowcase";
 import BlogHighlight from "@/components/BlogHighlight";
 import CTASection from "@/components/CTASection";
+import { useSEO } from "@/hooks/useSEO";
+import { useConversionTracking } from "@/hooks/useAnalytics";
+import { useToastHelpers } from "@/components/Toast";
 
 const Home = () => {
+  // Professional SEO setup
+  useSEO({
+    title: "Professional Development Platform | STACKO",
+    description: "Master modern technologies with expert-led courses, professional development programs, and hands-on projects. Join thousands of developers advancing their careers with STACKO.",
+    keywords: "web development, programming courses, professional development, coding bootcamp, tech skills, STACKO",
+    canonicalUrl: `${import.meta.env.VITE_SITE_URL || 'http://localhost:5173'}/`,
+    ogImage: `${import.meta.env.VITE_SITE_URL || 'http://localhost:5173'}/social-share.jpg`,
+    ogType: 'website',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "STACKO",
+      "url": import.meta.env.VITE_SITE_URL || 'http://localhost:5173',
+      "description": "Professional development platform for modern technologies",
+      "foundingDate": "2024",
+      "areaServed": "Worldwide",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "STACKO Courses",
+        "itemListElement": [
+          {
+            "@type": "Course",
+            "name": "Modern Web Development",
+            "description": "Comprehensive web development training"
+          }
+        ]
+      }
+    }
+  });
+
+  const { trackEngagement } = useConversionTracking();
+  const { info } = useToastHelpers();
+
+  // Track page engagement
+  useEffect(() => {
+    trackEngagement('page_view', 'Home Page');
+    
+    // Welcome message for first-time visitors
+    const isFirstVisit = !localStorage.getItem('stacko_visited');
+    if (isFirstVisit) {
+      localStorage.setItem('stacko_visited', 'true');
+      setTimeout(() => {
+        info(
+          "Welcome to STACKO! 🚀",
+          "Discover professional courses and advance your development career with our expert-led programs.",
+          { duration: 6000 }
+        );
+      }, 2000);
+    }
+  }, [trackEngagement, info]);
+
   return (
     <div className="relative">
       {/* Full-width Hero section */}
       <Hero />
+      
+      {/* Trust indicators and social proof */}
+      <TrustIndicators />
       
       {/* Main content with improved spacing */}
       <div className="relative">
