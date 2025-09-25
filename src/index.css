@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --color-background-primary: #000000;
+  --color-background-secondary: #111827;
+  --color-primary: #6B46C1;
+  --color-secondary: #8B5CF6;
+  --color-surface: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text: #ffffff;
+  --color-muted: #9CA3AF;
+  --hero-gradient: linear-gradient(135deg, #6B46C1 0%, #000000 100%);
+  --font-stacko-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-stacko-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+
+html {
+  background-color: var(--color-background-primary);
+  color: var(--color-text);
+  font-family: var(--font-stacko-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-background-primary);
+  color: var(--color-text);
+  font-family: var(--font-stacko-sans);
+  position: relative;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-secondary);
+  color: #0f172a;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    color: var(--color-muted);
+  }
+}
+
+@layer utilities {
+  .glass-surface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 24px 80px rgba(107, 70, 193, 0.2);
+  }
+
+  .glass-button {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(107, 70, 193, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 10px 30px rgba(107, 70, 193, 0.25);
+  }
+
+  .lighting-ring {
+    background: radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.35), transparent 55%),
+      radial-gradient(circle at 80% 0%, rgba(107, 70, 193, 0.25), transparent 45%),
+      linear-gradient(135deg, rgba(107, 70, 193, 0.18), rgba(0, 0, 0, 0.6));
+    filter: blur(60px);
+    opacity: 0.7;
+  }
+}
