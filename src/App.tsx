@@ -1,4 +1,5 @@
 import Background from "@/components/Background";
+import MouseTrail from "@/components/MouseTrail";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
@@ -22,6 +23,7 @@ const App = () => {
   return (
     <div className="bg-black text-white">
       <Background />
+      <MouseTrail />
       <div className="relative flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">

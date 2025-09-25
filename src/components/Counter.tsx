@@ -46,7 +46,7 @@ const Counter = ({ value, duration = 1.6, prefix = "", suffix = "" }: CounterPro
     return () => controls.stop();
   }, [isAnimated, value, duration, prefix, suffix]);
 
-  return <span ref={spanRef} className="text-4xl font-semibold text-white" />;
+  return <span ref={spanRef} className="stat-emphasis font-semibold text-white" />;
 };
 
 export default Counter;

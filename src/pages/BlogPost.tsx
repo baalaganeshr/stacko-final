@@ -35,25 +35,27 @@ const BlogPost = () => {
   }
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-5 pb-24 pt-20 md:px-10">
+    <div className="flex flex-col gap-[calc(var(--spacing-section)*1.1)] pb-[calc(var(--spacing-section)*1.4)] pt-[calc(var(--spacing-block)*0.6)]">
       <Reveal>
-        <article className="rounded-[3rem] border border-white/10 bg-[linear-gradient(135deg,rgba(107,70,193,0.35),rgba(0,0,0,0.85))] px-8 py-16 md:px-14">
-          <p className="text-xs uppercase tracking-[0.32em] text-secondary-500">{post.category}</p>
-          <h1 className="mt-4 text-4xl font-semibold text-white md:text-5xl">{post.title}</h1>
-          <div className="mt-4 flex flex-wrap gap-4 text-xs text-white/70">
-            <span>{post.date}</span>
-            <span>{post.readTime}</span>
-          </div>
-          <p className="mt-6 text-base text-white/75">{post.excerpt}</p>
-        </article>
+        <div className="section-shell">
+          <article className="glass-surface rounded-[3.6rem] border border-white/12 bg-[linear-gradient(135deg,rgba(107,70,193,0.35),rgba(0,0,0,0.87))] px-10 py-[clamp(3.5rem,6vw,5.5rem)] md:px-16">
+            <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">{post.category}</p>
+            <h1 className="mt-6 text-[clamp(2.6rem,4.4vw,3.8rem)] font-semibold text-white">{post.title}</h1>
+            <div className="mt-6 flex flex-wrap gap-4 text-xs text-white/65">
+              <span>{post.date}</span>
+              <span>{post.readTime}</span>
+            </div>
+            <p className="mt-8 text-lead text-white/80">{post.excerpt}</p>
+          </article>
+        </div>
       </Reveal>
 
-      <div className="mt-16 space-y-10">
+      <div className="section-shell space-y-8">
         {articleSections.map((section) => (
           <Reveal key={section.heading}>
-            <div className="glass-surface rounded-[2.5rem] border border-white/10 bg-white/5 p-8">
-              <h2 className="text-2xl font-semibold text-white">{section.heading}</h2>
-              <p className="mt-3 text-sm text-muted">{section.body}</p>
+            <div className="glass-surface rounded-[3rem] border border-white/12 p-12">
+              <h2 className="text-[clamp(1.7rem,2.4vw,2.1rem)] font-semibold text-white">{section.heading}</h2>
+              <p className="mt-4 text-sm text-white/70">{section.body}</p>
             </div>
           </Reveal>
         ))}
