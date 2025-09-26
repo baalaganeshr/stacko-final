@@ -42,7 +42,11 @@ jobs:
         run: npm run build
         
       - name: Setup Pages
+        id: pages
         uses: actions/configure-pages@v4
+        with:
+          # Enable Pages if not already enabled
+          enablement: true
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
