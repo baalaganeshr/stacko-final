@@ -1,187 +1,140 @@
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
+
+const programTracks = [
+  "Enterprise Dashboard Development",
+  "Advanced React Certification",
+  "AI Delivery Pods",
+  "Corporate Training Pipeline",
+];
+
+const partnerSignals = [
+  { value: "94%", label: "Placement within 90 days" },
+  { value: "1,200+", label: "Professionals certified" },
+  { value: "$47K", label: "Average salary lift" },
+];
 
 const Hero = () => {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative isolate min-h-[100dvh] overflow-hidden px-4 py-[var(--spacing-block)]"
-    >
-      <div className="absolute inset-0 -z-10 diagonal-cut bg-[linear-gradient(135deg,#6B46C1_0%,#000000_100%)] opacity-95" />
+    <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_top,#2E1D57_0%,#06070C_68%)]">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_right,rgba(139,92,246,0.22),transparent_65%)]" />
+        <div className="absolute -top-24 -left-12 h-72 w-72 rounded-full bg-gradient-to-br from-purple-600/35 to-indigo-600/10 blur-3xl" />
+        <div className="absolute -bottom-28 right-0 h-72 w-72 rounded-full bg-gradient-to-tr from-indigo-500/25 to-transparent blur-[140px]" />
+      </div>
 
-      <motion.div
-        aria-hidden
-        style={{ y }}
-        className="pointer-events-none absolute inset-x-0 top-0 h-[30rem] bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.14),rgba(107,70,193,0.08),transparent_72%)] opacity-70"
-      />
+      <div className="page-shell grid gap-12 py-[clamp(6rem,10vw,8.5rem)] lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:items-center">
+        <div className="space-y-10">
+          <motion.span
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-xs uppercase tracking-[0.45em] text-white/70"
+          >
+            STACKO - Industry-backed cohorts
+          </motion.span>
 
-      <div className="page-shell grid gap-16 pt-[calc(var(--spacing-block)*1.1)] pb-[calc(var(--spacing-block)*0.6)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-6">
-            <motion.span
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xs uppercase tracking-[0.45em] text-white/75"
-            >
-              STACKO · Crafted by seven founders
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="balanced-text text-[clamp(3.2rem,6.5vw,5.5rem)] font-bold leading-[1.1] text-white"
-            >
-              Professional Software Development Training{" "}
-              <span className="text-gray-300">
-                for Modern Enterprises
-              </span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 36 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-              className="text-xl leading-relaxed max-w-[42rem] text-white/90"
-            >
-              Enterprise-grade software development education trusted by Fortune 500 companies. Our comprehensive curriculum covers Python, JavaScript, React, Node.js, and AI technologies with hands-on industry projects and guaranteed career advancement support.
-            </motion.p>
-          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="balanced-text text-[clamp(3rem,6vw,4.8rem)] font-semibold leading-tight text-white"
+          >
+            Professional software development made clear and actionable
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="max-w-xl text-lg leading-relaxed text-white/80"
+          >
+            Guided programs built with Fortune 500 partners, live architecture reviews, and production-grade briefs.
+            Every cohort leaves with battle-tested systems, confident teams, and measurable business impact.
+          </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.25, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col gap-4 text-sm md:flex-row md:items-center"
+            transition={{ delay: 0.1, duration: 0.9, ease: "easeOut" }}
+            className="flex flex-col gap-4 sm:flex-row"
           >
-            <Link to="/signup" className="glass-button flex min-h-[3.5rem] items-center justify-center rounded-lg px-10 text-base font-semibold uppercase tracking-[0.1em] border border-white/20 hover:border-white/40">
-              Request Program Information
+            <Link
+              to="/signup"
+              className="inline-flex min-h-[3.25rem] items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_40px_rgba(107,70,193,0.35)] transition hover:shadow-[0_22px_50px_rgba(107,70,193,0.45)]"
+            >
+              Start a cohort plan
             </Link>
             <Link
               to="/services"
-              className="group flex min-h-[3.5rem] items-center justify-center rounded-lg border border-white/20 px-10 text-base font-semibold uppercase tracking-[0.1em] text-white transition-all hover:border-white/40 hover:bg-white/5"
+              className="inline-flex min-h-[3.25rem] items-center justify-center rounded-full border border-white/20 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition hover:border-white/35 hover:text-white"
             >
-              Enterprise Solutions
-              <span className="ml-2 text-base transition group-hover:translate-x-1">→</span>
+              Explore services
             </Link>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="grid gap-6 text-sm text-white/80 md:grid-cols-2"
+            transition={{ delay: 0.2, duration: 0.9, ease: "easeOut" }}
+            className="grid gap-4 sm:grid-cols-3"
           >
-            <div className="glass-surface-soft p-6 rounded-lg border border-white/10 bg-black/20">
-              <p className="text-lg font-semibold text-white mb-3">Flexible Learning Options</p>
-              <p className="text-sm text-white/80">
-                Individual courses starting at $299. Enterprise training programs from $15K. Custom development solutions available.
-              </p>
-            </div>
-            <div className="glass-surface-soft p-6 rounded-lg border border-white/10 bg-black/20">
-              <p className="text-lg font-semibold text-white mb-3">Proven Track Record</p>
-              <p className="text-sm text-white/80">
-                Over 1,200 professionals trained. Partnerships with leading technology companies worldwide. ISO 27001 certified training programs.
-              </p>
-            </div>
+            {partnerSignals.map((signal) => (
+              <div
+                key={signal.label}
+                className="rounded-2xl border border-white/12 bg-white/6 px-5 py-4 backdrop-blur-sm"
+              >
+                <p className="text-3xl font-semibold text-white">{signal.value}</p>
+                <p className="mt-1 text-sm text-white/70">{signal.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
 
-        <div className="relative flex h-full flex-col items-start gap-6">
+        <div className="space-y-6">
           <motion.div
-            initial={{ opacity: 0, y: -30, scale: 0.92 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.25, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-surface-soft pointer-events-none absolute -left-20 top-[12%] hidden w-64 flex-col gap-4 rounded-[2.4rem] border border-white/12 p-6 shadow-[0_24px_70px_rgba(107,70,193,0.28)] xl:flex"
-          >
-            <div className="flex items-center justify-between text-xs text-white/70">
-              <span className="rounded border border-white/20 bg-white/5 px-3 py-1 text-white/80 uppercase tracking-[0.24em]">
-                Training Metrics
-              </span>
-              <span>Current</span>
-            </div>
-            <p className="text-4xl font-bold text-white">94% Placement Rate</p>
-            <p className="text-sm text-white/80 leading-relaxed">
-              Program graduates securing senior developer positions within 90 days of certification completion.
-            </p>
-            <div className="flex items-center gap-2 text-xs text-secondary-500">
-              <span className="h-1 w-1 rounded-full bg-secondary-500" />
-              Updated weekly
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.94 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-surface relative w-full overflow-hidden rounded-[3rem] border border-white/15"
-          >
-            <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.42),transparent_70%)]" />
-            <div className="relative flex flex-col gap-6 p-10">
-              <div>
-                <p className="text-xs uppercase tracking-[0.32em] text-white/60">Development Environment</p>
-                <p className="mt-3 font-mono text-base text-white bg-black/60 p-3 rounded border border-white/20">
-                  $ npm create stacko-app my-project
-                </p>
-                <p className="mt-3 text-sm text-white/80 leading-relaxed">
-                  Production-ready React applications with TypeScript, modern build tools, and enterprise-grade configurations.
-                </p>
-              </div>
-              <div className="rounded border border-white/20 bg-black/40 p-6">
-                <p className="text-xs uppercase tracking-[0.32em] text-white/60 mb-4">Current Programs</p>
-                <ul className="space-y-3 text-sm text-white/90">
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-white/60" />
-                    <span className="font-medium">Enterprise Dashboard Development</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-white/60" />
-                    <span className="font-medium">Advanced React Certification</span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-2 w-2 rounded-full bg-white/60" />
-                    <span className="font-medium">Corporate Training Pipeline</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="rounded border border-white/20 bg-black/40 p-6">
-                <p className="text-xs uppercase tracking-[0.32em] text-white/60 mb-3">Professional Development</p>
-                <p className="text-sm text-white/90 leading-relaxed">
-                  <span className="font-semibold text-white">Industry-standard curriculum</span> developed with leading technology companies. Real-world projects and comprehensive career support included.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="flex w-full flex-col gap-6 rounded border border-white/20 bg-black/20 p-8 md:flex-row md:items-center md:justify-between"
+            transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
+            className="h-full rounded-3xl border border-white/12 bg-[linear-gradient(150deg,rgba(17,24,39,0.85),rgba(15,23,42,0.72))] p-8 backdrop-blur"
           >
-            <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-white/60 font-semibold">Training Outcomes</p>
-              <p className="mt-3 text-lg font-bold text-white">
-                1,200+ professionals certified in modern development practices
-              </p>
-              <p className="mt-2 text-sm text-white/80">
-                Average salary increase of $47K within 6 months • 94% career advancement rate among program graduates
+            <p className="text-xs uppercase tracking-[0.3em] text-white/60">Programs launching this quarter</p>
+            <div className="mt-6 space-y-4 text-sm text-white/75">
+              {programTracks.map((track) => (
+                <div key={track} className="flex items-start gap-3">
+                  <span className="mt-1.5 h-2 w-2 rounded-full bg-secondary-500" />
+                  <span className="leading-relaxed">{track}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-white/75">
+              <p className="font-semibold text-white">Remote-first - Weekly delivery - Portfolio-grade assets</p>
+              <p className="mt-2 leading-relaxed">
+                Teams collaborate live with STACKO mentors, ship production features, and exit with a polished playbook.
               </p>
             </div>
-            <div className="flex flex-col gap-3">
-              <Link to="/portfolio" className="glass-button px-6 py-3 text-sm font-semibold rounded border border-white/20 hover:border-white/40">
-                Case Studies
-              </Link>
-              <Link to="/courses" className="text-sm font-semibold text-white/70 hover:text-white transition-colors text-center">
-                View Programs →
-              </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.8, ease: "easeOut" }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur"
+          >
+            <p className="text-xs uppercase tracking-[0.3em] text-white/60">Trusted by product & engineering leaders</p>
+            <div className="mt-5 grid gap-3 text-sm text-white/75">
+              <div className="flex items-center justify-between rounded-2xl bg-white/5 px-5 py-3">
+                <span className="text-white">Velocity playbooks delivered</span>
+                <span className="font-semibold text-white/90">60+</span>
+              </div>
+              <div className="flex items-center justify-between rounded-2xl bg-white/5 px-5 py-3">
+                <span className="text-white">Sprint-to-launch timeline</span>
+                <span className="font-semibold text-white/90">6 weeks</span>
+              </div>
+              <div className="flex items-center justify-between rounded-2xl bg-white/5 px-5 py-3">
+                <span className="text-white">Live mentor hours per cohort</span>
+                <span className="font-semibold text-white/90">40+</span>
+              </div>
             </div>
           </motion.div>
         </div>

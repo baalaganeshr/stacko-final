@@ -30,7 +30,7 @@ export const Skeleton = ({
 };
 
 export const CourseCardSkeleton = () => (
-  <div className="glass-surface rounded-[2.8rem] border border-white/14 p-10 space-y-6">
+  <div className="rounded-[2.8rem] border border-white/12 bg-[#0f131f]/90 p-10 shadow-[0_22px_60px_rgba(2,4,12,0.38)] space-y-6">
     <div className="flex items-center justify-between">
       <Skeleton width="80px" height="24px" variant="rectangular" />
       <Skeleton width="60px" height="16px" />
@@ -61,7 +61,7 @@ export const CourseCardSkeleton = () => (
 );
 
 export const StatCardSkeleton = () => (
-  <div className="glass-surface rounded-[3rem] border border-white/12 p-12 text-center space-y-8">
+  <div className="rounded-[3rem] border border-white/12 bg-[#0f131f]/90 p-12 text-center shadow-[0_20px_56px_rgba(2,4,12,0.32)] space-y-8">
     <Skeleton width="120px" height="72px" className="mx-auto" />
     <Skeleton width="80%" height="24px" className="mx-auto" />
     <Skeleton width="90%" height="32px" className="mx-auto" />
@@ -104,12 +104,14 @@ export const PageSkeleton = ({ type = "home" }: { type?: "home" | "courses" | "b
               </div>
               <Skeleton width="150px" height="48px" variant="rectangular" />
             </div>
-            <div className="masonry-grid">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="masonry-item">
-                  <CourseCardSkeleton />
-                </div>
-              ))}
+            <div className="relative">
+              <div className="flex gap-6 overflow-hidden">
+                {[1, 2, 3, 4, 5, 6].map((i) => (
+                  <div key={i} className="min-w-[min(92vw,24rem)]">
+                    <CourseCardSkeleton />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -149,7 +151,7 @@ export const LoadingSpinner = ({ size = "md", className = "" }: {
   return (
     <div className={`${sizeClasses[size]} ${className}`}>
       <motion.div
-        className="w-full h-full border-2 border-white/20 border-t-purple-500 rounded-full"
+        className="w-full h-full border-2 border-white/20 border-t-white/70 rounded-full"
         animate={{ rotate: 360 }}
         transition={{
           duration: 1,
@@ -185,3 +187,4 @@ export const ProgressiveImage = ({
     }}
   />
 );
+
