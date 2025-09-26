@@ -1,5 +1,6 @@
 import Background from "@/components/Background";
 import MouseTrail from "@/components/MouseTrail";
+import CursorGlow from "@/components/CursorGlow";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ErrorBoundary, AsyncBoundary } from "@/components/ErrorBoundary";
@@ -33,6 +34,7 @@ const AppContent = () => {
     <div className="bg-black text-white">
       <Background />
       <MouseTrail />
+      <CursorGlow />
       <div className="relative flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">
