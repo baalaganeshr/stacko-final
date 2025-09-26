@@ -17,30 +17,30 @@ type MentorVariant = {
 const mentorVariants: MentorVariant[] = [
   {
     id: "charcoal",
-    surface: "bg-[#101421]/95 border-white/12 shadow-[0_22px_60px_rgba(2,4,12,0.45)]",
+    surface: "bg-[#121a27]/85 border-white/10 shadow-[0_16px_42px_rgba(5,8,15,0.28)]",
     halo: "from-white/12 via-white/5 to-transparent",
-    badge: "border-white/15 bg-white/8 text-white/60",
-    chip: "border-white/12 bg-white/6 text-white/65",
-    accent: "from-white/14 to-transparent",
-    dot: "bg-white/45",
+    badge: "border-white/10 bg-white/8 text-white/65",
+    chip: "border-white/10 bg-white/7 text-white/70",
+    accent: "from-white/18 to-transparent",
+    dot: "bg-white/55",
   },
   {
     id: "slate",
-    surface: "bg-[#0f121d]/95 border-white/12 shadow-[0_22px_60px_rgba(3,5,14,0.42)]",
+    surface: "bg-[#111723]/85 border-white/10 shadow-[0_16px_42px_rgba(4,7,14,0.26)]",
     halo: "from-white/11 via-white/4 to-transparent",
-    badge: "border-white/15 bg-white/8 text-white/60",
-    chip: "border-white/12 bg-white/6 text-white/65",
-    accent: "from-white/12 to-transparent",
-    dot: "bg-white/45",
+    badge: "border-white/10 bg-white/8 text-white/65",
+    chip: "border-white/10 bg-white/7 text-white/70",
+    accent: "from-white/18 to-transparent",
+    dot: "bg-white/55",
   },
   {
     id: "ink",
-    surface: "bg-[#0e121c]/95 border-white/12 shadow-[0_22px_60px_rgba(1,3,10,0.48)]",
+    surface: "bg-[#101421]/85 border-white/10 shadow-[0_16px_42px_rgba(4,6,12,0.26)]",
     halo: "from-white/12 via-white/4 to-transparent",
-    badge: "border-white/15 bg-white/8 text-white/60",
-    chip: "border-white/12 bg-white/6 text-white/65",
-    accent: "from-white/12 to-transparent",
-    dot: "bg-white/45",
+    badge: "border-white/10 bg-white/8 text-white/65",
+    chip: "border-white/10 bg-white/7 text-white/70",
+    accent: "from-white/18 to-transparent",
+    dot: "bg-white/55",
   },
 ];
 const simpleMentorSummaries: Record<number, string> = {
@@ -202,33 +202,10 @@ const TeamShowcase = () => {
               Weekly reviews, async notes, and practical check-ins keep every project moving forward.
             </p>
           </div>
-          <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
-            <p className="text-sm text-white/60 sm:text-right">Practical help from planning to launch.</p>
-            <div className="hidden items-center gap-3 sm:flex">
-              <button
-                type="button"
-                onClick={() => handleNavigate("prev")}
-                className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
-                aria-label="Previous mentor"
-              >
-                <span className="text-base transition-transform group-hover:-translate-x-0.5">&larr;</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleNavigate("next")}
-                className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
-                aria-label="Next mentor"
-              >
-                <span className="text-base transition-transform group-hover:translate-x-0.5">&rarr;</span>
-              </button>
-            </div>
-            <div className="hidden h-1 w-36 overflow-hidden rounded-full bg-white/10 sm:block">
-              <motion.div
-                className="h-full rounded-full bg-white/70"
-                animate={{ width: `${Math.max(8, progressPercent)}%` }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              />
-            </div>
+          <div className="flex w-full flex-col gap-3 sm:items-end sm:text-right">
+            <p className="text-sm text-white/60">
+              Browse the mentor stories and use the controls below to move at your pace.
+            </p>
           </div>
         </div>
       </Reveal>
@@ -264,7 +241,7 @@ const TeamShowcase = () => {
                   translateY: isActive ? 0 : 16,
                 }}
                 transition={{ duration: 0.45, ease: "easeOut" }}
-                className={`group relative flex h-full w-[min(92vw,22rem)] flex-col justify-between overflow-hidden rounded-[30px] border p-8 backdrop-blur ${variant.surface}`}
+                className={`group relative flex h-full w-[min(88vw,21rem)] flex-col justify-between overflow-hidden rounded-[26px] border p-7 backdrop-blur ${variant.surface}`}
               >
                 <div
                   className={`pointer-events-none absolute -inset-6 rounded-[36px] bg-gradient-to-br ${variant.halo} opacity-0 transition group-hover:opacity-100`}
@@ -304,7 +281,7 @@ const TeamShowcase = () => {
                   </div>
                   <Link
                     to="/about"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/0 px-3 py-2 text-xs font-medium text-white/75 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/12 px-3 py-2 text-xs font-medium text-white/75 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
                   >
                     Meet the team
                   </Link>
@@ -315,29 +292,58 @@ const TeamShowcase = () => {
         </div>
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-2">
-        {slides.map((_, index) => {
-          const isActive = index === activeIndex;
-          return (
-            <button
-              key={index}
-              type="button"
-              onClick={() => {
-                setIsAutoPlay(false);
-                clearResumeTimer();
-                scrollToIndex(index);
-              }}
-              aria-label={`Go to mentor ${index + 1}`}
-              className="group relative h-3 w-3 rounded-full bg-white/12 transition hover:bg-white/20"
-            >
-              <motion.span
-                className="absolute inset-0 rounded-full bg-white/70"
-                animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.6 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-              />
-            </button>
-          );
-        })}
+      <div className="mt-10 flex flex-col items-center gap-4">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => handleNavigate("prev")}
+            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white/70 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            aria-label="Previous mentor"
+          >
+            <span className="text-base transition-transform group-hover:-translate-x-0.5">&larr;</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => handleNavigate("next")}
+            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white/70 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            aria-label="Next mentor"
+          >
+            <span className="text-base transition-transform group-hover:translate-x-0.5">&rarr;</span>
+          </button>
+        </div>
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <div className="h-1 w-36 overflow-hidden rounded-full bg-white/10 sm:w-48">
+            <motion.div
+              className="h-full rounded-full bg-white/70"
+              animate={{ width: `${Math.max(8, progressPercent)}%` }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            {slides.map((_, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => {
+                    setIsAutoPlay(false);
+                    clearResumeTimer();
+                    scrollToIndex(index);
+                  }}
+                  aria-label={`Go to mentor ${index + 1}`}
+                  className="group relative h-3 w-3 rounded-full bg-white/12 transition hover:bg-white/20"
+                >
+                  <motion.span
+                    className="absolute inset-0 rounded-full bg-white/70"
+                    animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.6 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

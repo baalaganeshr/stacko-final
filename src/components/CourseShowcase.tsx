@@ -1,4 +1,4 @@
-﻿import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import courses from "@/data/courses";
@@ -17,27 +17,27 @@ type DesignVariant = {
 const designVariants: DesignVariant[] = [
   {
     id: "charcoal",
-    surface: "bg-[#0f131f]/95 border-white/12 shadow-[0_22px_60px_rgba(2,4,12,0.45)]",
-    tag: "border-white/12 bg-white/6 text-white/60",
-    chip: "border-white/12 bg-white/5 text-white/65",
-    dot: "bg-white/45",
-    accent: "from-white/14 to-transparent",
+    surface: "bg-[#121a27]/85 border-white/10 shadow-[0_16px_42px_rgba(5,8,15,0.28)]",
+    tag: "border-white/10 bg-white/8 text-white/65",
+    chip: "border-white/10 bg-white/7 text-white/70",
+    dot: "bg-white/55",
+    accent: "from-white/18 to-transparent",
   },
   {
     id: "slate",
-    surface: "bg-[#101520]/95 border-white/12 shadow-[0_22px_60px_rgba(3,5,14,0.42)]",
-    tag: "border-white/12 bg-white/6 text-white/60",
-    chip: "border-white/12 bg-white/5 text-white/65",
-    dot: "bg-white/45",
-    accent: "from-white/12 to-transparent",
+    surface: "bg-[#111723]/85 border-white/10 shadow-[0_16px_42px_rgba(4,7,14,0.26)]",
+    tag: "border-white/10 bg-white/8 text-white/65",
+    chip: "border-white/10 bg-white/7 text-white/70",
+    dot: "bg-white/55",
+    accent: "from-white/18 to-transparent",
   },
   {
     id: "ink",
-    surface: "bg-[#0e121d]/95 border-white/12 shadow-[0_22px_60px_rgba(1,3,10,0.48)]",
-    tag: "border-white/12 bg-white/6 text-white/60",
-    chip: "border-white/12 bg-white/5 text-white/65",
-    dot: "bg-white/45",
-    accent: "from-white/12 to-transparent",
+    surface: "bg-[#101421]/85 border-white/10 shadow-[0_16px_42px_rgba(4,6,12,0.26)]",
+    tag: "border-white/10 bg-white/8 text-white/65",
+    chip: "border-white/10 bg-white/7 text-white/70",
+    dot: "bg-white/55",
+    accent: "from-white/18 to-transparent",
   },
 ];
 const friendlyCourseDescriptions: Record<number, string> = {
@@ -193,32 +193,10 @@ const CourseShowcase = () => {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-end">
-            <div className="hidden items-center gap-3 sm:flex">
-              <button
-                type="button"
-                onClick={() => handleNavigate("prev")}
-                className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
-                aria-label="Previous program"
-              >
-                <span className="text-lg transition-transform group-hover:-translate-x-0.5">&larr;</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleNavigate("next")}
-                className="group flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white/70 transition hover:border-white/35 hover:bg-white/10 hover:text-white"
-                aria-label="Next program"
-              >
-                <span className="text-lg transition-transform group-hover:translate-x-0.5">&rarr;</span>
-              </button>
-            </div>
-            <div className="hidden h-1 w-48 overflow-hidden rounded-full bg-white/10 sm:block">
-              <motion.div
-                className="h-full rounded-full bg-white/70"
-                animate={{ width: `${Math.max(8, progressPercent)}%` }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              />
-            </div>
+          <div className="flex w-full flex-col gap-3 sm:items-end sm:text-right">
+            <p className="text-sm text-white/60">
+              Glide through the programs or use the controls below.
+            </p>
           </div>
         </Reveal>
       </div>
@@ -248,7 +226,7 @@ const CourseShowcase = () => {
                     translateY: isActive ? 0 : 16,
                   }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className={`relative flex h-full w-[min(92vw,24rem)] flex-col justify-between rounded-[28px] border p-8 backdrop-blur ${variant.surface}`}
+                  className={`relative flex h-full w-[min(88vw,21.5rem)] flex-col justify-between rounded-[26px] border p-7 backdrop-blur ${variant.surface}`}
                 >
                   {variant.sheen && (
                     <div className={`pointer-events-none absolute inset-0 rounded-[28px] ${variant.sheen}`} />
@@ -281,7 +259,7 @@ const CourseShowcase = () => {
                     </ul>
                   </div>
 
-                  <div className="relative mt-6 flex flex-col gap-5 border-t border-white/10 pt-6 text-sm text-white/75">
+                  <div className="relative mt-6 flex flex-col gap-5 border-t border-white/10 pt-5 text-sm text-white/70">
                     <div className="flex flex-wrap gap-2 text-xs">
                       {course.stack.slice(0, 5).map((tech) => (
                         <span key={tech} className={`rounded-full px-3 py-1 ${variant.chip}`}>
@@ -292,7 +270,7 @@ const CourseShowcase = () => {
                     <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
                       <span className="text-base font-semibold text-white">{course.price}</span>
                       <Link
-                        className="inline-flex items-center gap-2 rounded-full border border-white/0 px-4 py-2 text-white/75 transition hover:border-white/20 hover:bg-white/10 hover:text-white"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/12 px-4 py-2 text-white/75 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
                         to={"/courses/" + course.slug}
                       >
                         View course
@@ -306,35 +284,65 @@ const CourseShowcase = () => {
         </div>
       </div>
 
-      <div className="mt-8 flex items-center justify-center gap-2">
-        {slides.map((_, index) => {
-          const isActive = index === activeIndex;
-          return (
-            <button
-              key={index}
-              type="button"
-              onClick={() => {
-                setIsAutoPlay(false);
-                clearResumeTimer();
-                scrollToIndex(index);
-              }}
-              aria-label={`Go to program ${index + 1}`}
-              className="group relative h-3 w-3 rounded-full bg-white/12 transition hover:bg-white/20"
-            >
-              <motion.span
-                className="absolute inset-0 rounded-full bg-white/70"
-                animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.6 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-              />
-            </button>
-          );
-        })}
+      <div className="mt-10 flex flex-col items-center gap-4">
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => handleNavigate("prev")}
+            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white/70 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            aria-label="Previous program"
+          >
+            <span className="text-base transition-transform group-hover:-translate-x-0.5">&larr;</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => handleNavigate("next")}
+            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/12 bg-white/5 text-white/70 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+            aria-label="Next program"
+          >
+            <span className="text-base transition-transform group-hover:translate-x-0.5">&rarr;</span>
+          </button>
+        </div>
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <div className="h-1 w-36 overflow-hidden rounded-full bg-white/10 sm:w-48">
+            <motion.div
+              className="h-full rounded-full bg-white/70"
+              animate={{ width: `${Math.max(8, progressPercent)}%` }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            {slides.map((_, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => {
+                    setIsAutoPlay(false);
+                    clearResumeTimer();
+                    scrollToIndex(index);
+                  }}
+                  aria-label={"Go to program " + (index + 1)}
+                  className="group relative h-3 w-3 rounded-full bg-white/12 transition hover:bg-white/20"
+                >
+                  <motion.span
+                    className="absolute inset-0 rounded-full bg-white/70"
+                    animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.6 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default CourseShowcase;
+
 
 
 

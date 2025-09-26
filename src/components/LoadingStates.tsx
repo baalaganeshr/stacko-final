@@ -107,7 +107,7 @@ export const PageSkeleton = ({ type = "home" }: { type?: "home" | "courses" | "b
             <div className="relative">
               <div className="flex gap-6 overflow-hidden">
                 {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="min-w-[min(92vw,24rem)]">
+                  <div key={i} className="min-w-[min(88vw,21.5rem)]">
                     <CourseCardSkeleton />
                   </div>
                 ))}
@@ -187,4 +187,5 @@ export const ProgressiveImage = ({
     }}
   />
 );
+
 
