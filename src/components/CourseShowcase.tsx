@@ -41,17 +41,24 @@ const designVariants: DesignVariant[] = [
   },
 ];
 const friendlyCourseDescriptions: Record<number, string> = {
-  1: "Pick up Python basics, automate routine tasks, and handle data with clear examples.",
-  2: "Build React screens and simple APIs step by step with guided reviews.",
-  3: "Practice React patterns for smoother UI, faster loads, and easier teamwork.",
-  4: "Ship Node.js bots and automations using AI helpers without heavy setup.",
-  5: "Create portfolio pieces with weekly mentor check-ins and plain feedback.",
+  1: "Master Python fundamentals and build real automation tools",
+  2: "Create full-stack apps with modern React and Node.js",
+  3: "Advanced React patterns for production-ready applications",
+  4: "Build AI-powered chatbots and intelligent backends",
+  5: "Work on real projects with 1:1 mentorship and career prep",
+};
+
+const courseIcons: Record<number, string> = {
+  1: "🐍",
+  2: "⚛️",
+  3: "🚀",
+  4: "🤖",
+  5: "💼",
 };
 
 const CourseShowcase = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const rafRef = useRef<number | null>(null);
-  const resumeTimerRef = useRef<number | null>(null);
 
   const slides = useMemo(
     () =>
@@ -64,29 +71,17 @@ const CourseShowcase = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [progress, setProgress] = useState(0);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
 
-  const clearResumeTimer = useCallback(() => {
-    if (resumeTimerRef.current !== null) {
-      window.clearTimeout(resumeTimerRef.current);
-      resumeTimerRef.current = null;
-    }
-  }, []);
-
-  const scheduleResume = useCallback(() => {
-    clearResumeTimer();
-    resumeTimerRef.current = window.setTimeout(() => setIsAutoPlay(true), 12000);
-  }, [clearResumeTimer]);
+  // Auto-play functionality removed for better user control
 
   useEffect(() => {
     return () => {
-      clearResumeTimer();
       if (rafRef.current !== null) {
         cancelAnimationFrame(rafRef.current);
         rafRef.current = null;
       }
     };
-  }, [clearResumeTimer]);
+  }, []);
 
   const computeActiveCard = useCallback(() => {
     const node = sliderRef.current;
@@ -125,8 +120,6 @@ const CourseShowcase = () => {
       rafRef.current = requestAnimationFrame(() => {
         computeActiveCard();
       });
-      setIsAutoPlay(false);
-      scheduleResume();
     };
 
     node.addEventListener("scroll", handleScroll, { passive: true });
@@ -137,7 +130,7 @@ const CourseShowcase = () => {
       node.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", computeActiveCard);
     };
-  }, [computeActiveCard, scheduleResume]);
+  }, [computeActiveCard]);
 
   const scrollToIndex = useCallback((index: number) => {
     const node = sliderRef.current;
@@ -159,22 +152,21 @@ const CourseShowcase = () => {
         return activeIndex + delta;
       })();
 
-      setIsAutoPlay(false);
-      scheduleResume();
       scrollToIndex(nextIndex);
     },
-    [activeIndex, scheduleResume, scrollToIndex, slides.length]
+    [activeIndex, scrollToIndex, slides.length]
   );
 
-  useEffect(() => {
-    if (!isAutoPlay || slides.length <= 1) return;
-    const timer = window.setTimeout(() => {
-      const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1;
-      scrollToIndex(nextIndex);
-    }, 7000);
+  // Auto-play disabled for better user control
+  // useEffect(() => {
+  //   if (!isAutoPlay || slides.length <= 1) return;
+  //   const timer = window.setTimeout(() => {
+  //     const nextIndex = activeIndex === slides.length - 1 ? 0 : activeIndex + 1;
+  //     scrollToIndex(nextIndex);
+  //   }, 7000);
 
-    return () => window.clearTimeout(timer);
-  }, [activeIndex, isAutoPlay, scrollToIndex, slides.length]);
+  //   return () => window.clearTimeout(timer);
+  // }, [activeIndex, isAutoPlay, scrollToIndex, slides.length]);
 
   const progressPercent = slides.length <= 1 ? 100 : (progress || activeIndex / (slides.length - 1)) * 100;
 
@@ -207,11 +199,7 @@ const CourseShowcase = () => {
         <div
           ref={sliderRef}
           className="hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pl-4 pr-8 sm:-mx-6 sm:pl-6 sm:pr-10 lg:-mx-8 lg:pl-8 lg:pr-16"
-          onMouseEnter={() => {
-            setIsAutoPlay(false);
-            clearResumeTimer();
-          }}
-          onMouseLeave={() => scheduleResume()}
+
         >
           {slides.map(({ course, variant }, index) => {
             const isActive = index === activeIndex;
@@ -221,59 +209,78 @@ const CourseShowcase = () => {
                   data-course-card="true"
                   initial={false}
                   animate={{
-                    scale: isActive ? 1 : 0.94,
-                    opacity: isActive ? 1 : 0.75,
-                    translateY: isActive ? 0 : 16,
+                    scale: isActive ? 1 : 0.96,
+                    opacity: isActive ? 1 : 0.8,
+                    translateY: isActive ? 0 : 12,
                   }}
                   transition={{ duration: 0.45, ease: "easeOut" }}
-                  className={`relative flex h-full w-[min(88vw,21.5rem)] flex-col justify-between rounded-[26px] border p-7 backdrop-blur ${variant.surface}`}
+                  className={`group relative flex h-full w-[min(88vw,22rem)] flex-col rounded-[24px] border p-6 backdrop-blur transition-all duration-300 ${variant.surface} ${isActive ? 'ring-1 ring-white/20' : ''}`}
                 >
                   {variant.sheen && (
-                    <div className={`pointer-events-none absolute inset-0 rounded-[28px] ${variant.sheen}`} />
+                    <div className={`pointer-events-none absolute inset-0 rounded-[24px] ${variant.sheen}`} />
                   )}
-                  <motion.div
-                    className={`absolute left-8 right-8 top-6 h-px bg-gradient-to-r ${variant.accent}`}
-                    animate={{ opacity: isActive ? 1 : 0.4 }}
-                    transition={{ duration: 0.45, ease: "easeOut" }}
-                  />
-
-                  <div className="relative space-y-5">
-                    <div className="flex items-center justify-between text-xs text-white/65">
-                      <span className={`rounded-full border px-3 py-1 uppercase tracking-[0.18em] ${variant.tag}`}>
-                        {course.level}
-                      </span>
-                      <span>{course.duration}</span>
+                  
+                  {/* Header Section */}
+                  <div className="relative mb-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{courseIcons[course.id]}</span>
+                        <span className={`rounded-full border px-3 py-1.5 text-xs font-medium uppercase tracking-[0.15em] ${variant.tag}`}>
+                          {course.level}
+                        </span>
+                      </div>
+                      <span className="text-xs font-medium text-white/70">{course.duration}</span>
                     </div>
-                    <div className="space-y-3">
-                      <h3 className="text-2xl font-semibold text-white">{course.title}</h3>
-                      <p className="text-sm text-white/75">{course.tagline}</p>
+                    
+                    <div className="space-y-2">
+                      <h3 className="text-[1.75rem] font-bold leading-tight text-white group-hover:text-white/95 transition-colors">
+                        {course.title}
+                      </h3>
+                      <p className="text-base font-medium text-white/85">{course.tagline}</p>
                     </div>
-                    <p className="text-sm text-white/65">{friendlyCourseDescriptions[course.id] || course.description}</p>
-                    <ul className="space-y-3 text-sm text-white/80">
-                      {course.highlights.slice(0, 2).map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-3">
-                          <span className={`mt-[6px] h-2 w-2 rounded-full ${variant.dot}`} />
-                          <span className="leading-relaxed">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
 
-                  <div className="relative mt-6 flex flex-col gap-5 border-t border-white/10 pt-5 text-sm text-white/70">
-                    <div className="flex flex-wrap gap-2 text-xs">
-                      {course.stack.slice(0, 5).map((tech) => (
-                        <span key={tech} className={`rounded-full px-3 py-1 ${variant.chip}`}>
+                  {/* Content Section */}
+                  <div className="flex-1 space-y-5">
+                    <p className="text-[15px] leading-relaxed text-white/75">
+                      {friendlyCourseDescriptions[course.id] || course.description}
+                    </p>
+                    
+                    {/* Key Highlights */}
+                    <div className="space-y-3">
+                      <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">What you'll build</h4>
+                      <ul className="space-y-2.5">
+                        {course.highlights.slice(0, 2).map((highlight) => (
+                          <li key={highlight} className="flex items-start gap-3">
+                            <span className={`mt-1.5 h-1.5 w-1.5 rounded-full flex-shrink-0 ${variant.dot}`} />
+                            <span className="text-sm leading-relaxed text-white/80 font-medium">{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Footer Section */}
+                  <div className="mt-6 space-y-4 border-t border-white/8 pt-5">
+                    <div className="flex flex-wrap gap-1.5">
+                      {course.stack.slice(0, 4).map((tech) => (
+                        <span key={tech} className={`rounded-lg px-2.5 py-1 text-xs font-medium ${variant.chip}`}>
                           {tech}
                         </span>
                       ))}
                     </div>
-                    <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
-                      <span className="text-base font-semibold text-white">{course.price}</span>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="space-y-1">
+                        <p className="text-xs font-medium text-white/60">Starting at</p>
+                        <span className="text-xl font-bold text-white">${course.price}</span>
+                      </div>
                       <Link
-                        className="inline-flex items-center gap-2 rounded-full border border-white/12 px-4 py-2 text-white/75 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
+                        className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/8 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-white/30 hover:bg-white/15 hover:scale-[1.02] active:scale-[0.98]"
                         to={"/courses/" + course.slug}
                       >
-                        View course
+                        Explore course
+                        <span className="text-xs transition-transform group-hover:translate-x-0.5">→</span>
                       </Link>
                     </div>
                   </div>
@@ -319,8 +326,6 @@ const CourseShowcase = () => {
                   key={index}
                   type="button"
                   onClick={() => {
-                    setIsAutoPlay(false);
-                    clearResumeTimer();
                     scrollToIndex(index);
                   }}
                   aria-label={"Go to program " + (index + 1)}

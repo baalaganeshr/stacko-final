@@ -84,10 +84,17 @@ body {
   .hide-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1rem;
   }
 
   .hide-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
   .page-shell {
     width: min(1400px, 92vw);
