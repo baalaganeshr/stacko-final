@@ -32,12 +32,12 @@ const Services = () => {
               We build with the same precision we teach. Whether you need a production-ready MVP, an AI assistant, or a design system that sings, STACKO embeds multidisciplinary teams that feel like an extension of yours.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link to="/contact" className="glass-button hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+              <Link to="/contact" className="btn btn-primary hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
                 Book a discovery call
               </Link>
               <Link
                 to="/portfolio"
-                className="hover-lift rounded-full border border-white/25 px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-secondary-500/60"
+                className="btn btn-secondary hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]"
               >
                 Request case studies
               </Link>

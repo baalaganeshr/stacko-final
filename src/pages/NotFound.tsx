@@ -12,7 +12,9 @@ const NotFound = () => {
             The section you’re looking for might be shipping soon. Head back to the homepage to explore our cohorts and studio work.
           </p>
           <Link to="/" className="glass-button hover-lift mt-8 inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-            Return home
+            <span className="btn btn-primary mt-8 inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
+              Return home
+            </span>
           </Link>
         </div>
       </Reveal>

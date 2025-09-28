@@ -25,7 +25,7 @@ const ServicesHighlight = () => {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4">
-            <Link to="/services" className="glass-button hover-lift inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
+            <Link to="/services" className="btn btn-primary hover-lift inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
               Explore services
             </Link>
             <Link to="/portfolio" className="text-sm font-semibold text-secondary-500 transition hover:text-secondary-300">

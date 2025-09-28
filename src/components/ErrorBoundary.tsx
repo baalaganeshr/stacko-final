@@ -135,7 +135,7 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error, onRetry }) => {
         <div className="flex gap-4 justify-center">
           <motion.button
             onClick={onRetry}
-            className="btn btn-primary"
+            className="btn btn-primary px-6 py-3 rounded-xl"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -144,7 +144,7 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({ error, onRetry }) => {
           
           <motion.button
             onClick={() => window.location.reload()}
-            className="btn btn-secondary"
+            className="btn btn-secondary px-6 py-3 rounded-xl"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >

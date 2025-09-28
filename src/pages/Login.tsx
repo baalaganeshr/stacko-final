@@ -40,7 +40,9 @@ const Login = () => {
               </Link>
             </div>
             <button type="submit" className="glass-button hover-lift w-full rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              Continue
+              <span className="btn btn-primary w-full rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
+                Continue
+              </span>
             </button>
           </form>
           <p className="mt-6 text-center text-sm text-white/65">

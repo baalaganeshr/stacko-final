@@ -107,7 +107,7 @@ const Header = () => {
           </NavLink>
           <Link
             to="/signup"
-            className="glass-button rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.18em] text-white"
+            className="btn btn-primary rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.18em]"
           >
             Start learning free
           </Link>
@@ -196,7 +196,7 @@ const Header = () => {
               </NavLink>
               <Link
                 to="/signup"
-                className="glass-button rounded-2xl px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white"
+                className="btn btn-primary rounded-2xl px-4 py-3 text-center text-sm font-semibold uppercase tracking-[0.2em]"
               >
                 Start learning free
               </Link>

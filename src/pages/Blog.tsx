@@ -58,7 +58,9 @@ const Blog = () => {
                 className="w-full rounded-2xl border border-white/15 bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/55 focus:border-secondary-500 focus:outline-none focus:ring-2 focus:ring-secondary-500/30 sm:w-80"
               />
               <button type="submit" className="glass-button hover-lift rounded-2xl px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-                Subscribe
+                <span className="btn btn-primary rounded-2xl px-7 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
+                  Subscribe
+                </span>
               </button>
             </form>
           </div>

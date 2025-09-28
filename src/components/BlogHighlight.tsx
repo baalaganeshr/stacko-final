@@ -24,7 +24,9 @@ const BlogHighlight = () => {
             </p>
           </div>
           <Link to="/blog" className="glass-button hover-lift inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
-            Explore blog
+            <span className="btn btn-secondary inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
+              Explore blog
+            </span>
           </Link>
         </div>
       </Reveal>

@@ -79,7 +79,9 @@ const Contact = () => {
               />
             </label>
             <button type="submit" className="glass-button hover-lift mt-10 w-full rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              Book my consultation
+              <span className="btn btn-primary mt-10 w-full rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
+                Book my consultation
+              </span>
             </button>
           </form>
         </Reveal>

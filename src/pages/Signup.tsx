@@ -91,7 +91,9 @@ const Signup = () => {
               </span>
             </label>
             <button type="submit" className="glass-button hover-lift mt-10 w-full rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              Create my account
+              <span className="btn btn-primary mt-10 w-full rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
+                Create my account
+              </span>
             </button>
             <p className="mt-6 text-center text-sm text-white/65">
               Already a member? <Link to="/login" className="text-secondary-500 transition hover:text-secondary-300">Log in</Link>

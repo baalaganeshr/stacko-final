@@ -32,12 +32,12 @@ const Courses = () => {
               Choose the language, stack, or specialization that accelerates your trajectory. Every cohort is powered by project-based learning, code reviews, and a live connection to STACKO’s engineering studio.
             </p>
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link to="/signup" className="glass-button hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
+              <Link to="/signup" className="btn btn-primary hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
                 Claim your free onboarding
               </Link>
               <Link
                 to="/contact"
-                className="hover-lift rounded-full border border-white/25 px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:border-secondary-500/60"
+                className="btn btn-secondary hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]"
               >
                 Talk to our team
               </Link>

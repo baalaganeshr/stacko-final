@@ -276,7 +276,7 @@ const CourseShowcase = () => {
                         <span className="text-xl font-bold text-white">${course.price}</span>
                       </div>
                       <Link
-                        className="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/8 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-white/30 hover:bg-white/15 hover:scale-[1.02] active:scale-[0.98]"
+                        className="btn btn-secondary inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold hover:scale-[1.02] active:scale-[0.98]"
                         to={"/courses/" + course.slug}
                       >
                         Explore course

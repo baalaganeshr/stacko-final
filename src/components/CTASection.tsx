@@ -31,13 +31,13 @@ const CTASection = () => {
               <div className="flex flex-col items-center justify-center gap-6 sm:flex-row sm:gap-8">
                 <Link 
                   to="/signup" 
-                  className="glass-button hover-lift rounded px-12 py-4 text-base font-semibold uppercase tracking-[0.1em] min-w-[280px] sm:min-w-auto border border-white/20 hover:border-white/40"
+                  className="btn btn-primary hover-lift rounded-xl px-12 py-4 text-base font-semibold uppercase tracking-[0.1em] min-w-[280px] sm:min-w-auto"
                 >
                   Request Information
                 </Link>
                 <Link
                   to="/contact"
-                  className="hover-lift rounded border border-white/30 px-12 py-4 text-base font-semibold uppercase tracking-[0.1em] text-white transition-all duration-300 hover:border-white/50 hover:bg-white/5 min-w-[280px] sm:min-w-auto"
+                  className="btn btn-secondary hover-lift rounded-xl px-12 py-4 text-base font-semibold uppercase tracking-[0.1em] min-w-[280px] sm:min-w-auto"
                 >
                   Enterprise Consultation
                 </Link>

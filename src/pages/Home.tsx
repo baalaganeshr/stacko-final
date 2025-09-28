@@ -10,7 +10,6 @@ import BlogHighlight from "@/components/BlogHighlight";
 import CTASection from "@/components/CTASection";
 import { useSEO } from "@/hooks/useSEO";
 import { useConversionTracking } from "@/hooks/useAnalytics";
-import { useToastHelpers } from "@/components/Toast";
 
 const Home = () => {
   // Professional SEO setup
@@ -44,25 +43,11 @@ const Home = () => {
   });
 
   const { trackEngagement } = useConversionTracking();
-  const { info } = useToastHelpers();
 
   // Track page engagement
   useEffect(() => {
     trackEngagement('page_view', 'Home Page');
-    
-    // Welcome message for first-time visitors
-    const isFirstVisit = !localStorage.getItem('stacko_visited');
-    if (isFirstVisit) {
-      localStorage.setItem('stacko_visited', 'true');
-      setTimeout(() => {
-        info(
-          "Welcome to STACKO! 🚀",
-          "Discover professional courses and advance your development career with our expert-led programs.",
-          { duration: 6000 }
-        );
-      }, 2000);
-    }
-  }, [trackEngagement, info]);
+  }, [trackEngagement]);
 
   return (
     <div className="relative">

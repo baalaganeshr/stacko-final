@@ -61,13 +61,13 @@ const Hero = () => {
           >
             <Link
               to="/signup"
-              className="inline-flex min-h-[3.25rem] items-center justify-center rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-white shadow-[0_18px_40px_rgba(107,70,193,0.35)] transition hover:shadow-[0_22px_50px_rgba(107,70,193,0.45)]"
+              className="btn btn-primary min-h-[3.25rem] rounded-full px-8 text-sm font-semibold uppercase tracking-[0.18em] shadow-[0_18px_40px_rgba(107,70,193,0.35)] hover:shadow-[0_22px_50px_rgba(107,70,193,0.45)]"
             >
               Start a cohort plan
             </Link>
             <Link
               to="/services"
-              className="inline-flex min-h-[3.25rem] items-center justify-center rounded-full border border-white/20 px-8 text-sm font-semibold uppercase tracking-[0.18em] text-white/80 transition hover:border-white/35 hover:text-white"
+              className="btn btn-secondary min-h-[3.25rem] rounded-full px-8 text-sm font-semibold uppercase tracking-[0.18em]"
             >
               Explore services
             </Link>
