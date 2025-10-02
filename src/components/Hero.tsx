@@ -31,7 +31,7 @@ const Hero = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="text-xs uppercase tracking-[0.45em] text-white/70"
           >
-            STACKO - Industry-backed cohorts
+            STACKO - Professional Development Platform
           </motion.span>
 
           <motion.h1
@@ -40,7 +40,7 @@ const Hero = () => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="balanced-text text-[clamp(3rem,6vw,4.8rem)] font-semibold leading-tight text-white"
           >
-            Professional software development made clear and actionable
+            Learn modern web development from expert developers
           </motion.h1>
 
           <motion.p
@@ -49,8 +49,7 @@ const Hero = () => {
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="max-w-xl text-lg leading-relaxed text-white/80"
           >
-            Guided programs built with Fortune 500 partners, live architecture reviews, and production-grade briefs.
-            Every cohort leaves with battle-tested systems, confident teams, and measurable business impact.
+            Master React, Node.js, and full-stack development through hands-on courses. Build real projects with guidance from experienced developers.
           </motion.p>
 
           <motion.div
@@ -63,13 +62,13 @@ const Hero = () => {
               to="/signup"
               className="btn btn-primary min-h-[3.25rem] rounded-full px-8 text-sm font-semibold uppercase tracking-[0.18em] shadow-[0_18px_40px_rgba(107,70,193,0.35)] hover:shadow-[0_22px_50px_rgba(107,70,193,0.45)]"
             >
-              Start a cohort plan
+              Start Learning
             </Link>
             <Link
               to="/services"
               className="btn btn-secondary min-h-[3.25rem] rounded-full px-8 text-sm font-semibold uppercase tracking-[0.18em]"
             >
-              Explore services
+              View Services
             </Link>
           </motion.div>
 

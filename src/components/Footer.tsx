@@ -8,14 +8,13 @@ const Footer = () => {
       <div className="section-shell grid gap-16 py-[clamp(3.5rem,6vw,5.5rem)] lg:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-6">
           <div className="flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[radial-gradient(circle_at_top,rgba(107,70,193,0.45),rgba(0,0,0,0.4))] p-2">
-              <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
-                <circle cx="16" cy="14" r="8" fill="currentColor" opacity="0.3"/>
-                <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                <circle cx="20" cy="12" r="2" fill="currentColor"/>
-                <path d="M10 16 C10 16, 12 20, 16 20 C20 20, 22 16, 22 16" stroke="currentColor" strokeWidth="2" fill="none"/>
-                <path d="M8 8 L10 10 M24 8 L22 10" stroke="currentColor" strokeWidth="2"/>
-              </svg>
+            <div className="h-40 w-40 flex items-center justify-center">
+              <img 
+                src="/stacko-final/stacko-logo.svg" 
+                alt="STACKO Logo" 
+                className="h-full w-full object-contain"
+                style={{ display: 'block', maxWidth: '100%', maxHeight: '100%' }}
+              />
             </div>
             <div>
               <p className="text-xl font-semibold text-white">STACKO</p>
@@ -23,7 +22,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="max-w-xl text-sm text-white/70">
-            STACKO is the home for ambitious builders. Founded by seven college innovators, we merge immersive programming education with bespoke software solutions that help teams go from idea to impact in record time.
+            STACKO teaches modern web development through hands-on courses and provides professional development services. Learn to build real applications from experienced developers.
           </p>
           <div className="flex flex-wrap items-center gap-5 text-sm text-white/65">
             <a className="transition hover:text-white" href="mailto:hello@stacko.dev">

@@ -13,8 +13,8 @@ const BlogHighlight = () => {
   return (
     <section className="section-shell section-padding" id="blog">
       <Reveal>
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl space-y-5">
+        <div className="flex flex-col gap-8 text-center">
+          <div className="mx-auto max-w-3xl space-y-5">
             <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">STACKO journal</p>
             <h2 className="balanced-text text-[clamp(2.2rem,3.5vw,3.2rem)] font-semibold text-white">
               Insights for engineers and operators building the future
@@ -23,7 +23,7 @@ const BlogHighlight = () => {
               Tutorials, strategy briefings, and behind-the-scenes notes from the STACKO studio.
             </p>
           </div>
-          <Link to="/blog" className="glass-button hover-lift inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
+          <Link to="/blog" className="glass-button hover-lift inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em] mx-auto">
             <span className="btn btn-secondary inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
               Explore blog
             </span>

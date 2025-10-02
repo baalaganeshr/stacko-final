@@ -22,24 +22,24 @@ const Services = () => {
     <div className="min-h-screen py-20 px-4">
       <Reveal>
         <div className="max-w-7xl mx-auto px-4">
-          <div className="glass-surface relative overflow-hidden rounded-[2.5rem] border border-white/12 bg-gradient-to-br from-purple-900/50 to-black/80 p-12 md:p-16">
+          <div className="glass-surface relative overflow-hidden rounded-[2.5rem] border border-white/12 bg-gradient-to-br from-purple-900/50 to-black/80 p-12 md:p-16 text-center">
             <div className="absolute -left-24 top-[-30%] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.4),transparent_70%)] blur-[110px]" />
-            <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">STACKO studio</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">STACKO Development</p>
             <h1 className="mt-6 text-4xl md:text-5xl font-bold text-white">
-              Development services for vision-driven teams
+              Professional web development services
             </h1>
-            <p className="mt-6 max-w-3xl text-lg text-white/80">
-              We build with the same precision we teach. Whether you need a production-ready MVP, an AI assistant, or a design system that sings, STACKO embeds multidisciplinary teams that feel like an extension of yours.
+            <p className="mt-6 max-w-3xl mx-auto text-lg text-white/80">
+              We build modern web applications using React, Node.js, and the latest technologies. From MVP to full-scale applications, we create solutions that work for your business.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row justify-center">
               <Link to="/contact" className="btn btn-primary hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
-                Book a discovery call
+                Contact Us
               </Link>
               <Link
                 to="/portfolio"
                 className="btn btn-secondary hover-lift rounded-full px-8 py-3 text-sm font-semibold uppercase tracking-[0.2em]"
               >
-                Request case studies
+                View Portfolio
               </Link>
             </div>
           </div>

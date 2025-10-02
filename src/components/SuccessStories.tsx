@@ -19,17 +19,17 @@ const SuccessStories = () => {
     <section className="section-padding">
       <div className="page-shell">
         <Reveal>
-          <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-4xl space-y-6">
+          <div className="flex flex-col gap-10 text-center">
+            <div className="mx-auto max-w-4xl space-y-6">
               <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">Success stories</p>
               <h2 className="balanced-text text-[clamp(2.4rem,4vw,3.8rem)] font-semibold text-white">
                 Builders who trusted STACKO to accelerate their careers and products
               </h2>
-              <p className="text-lead max-w-3xl">
+              <p className="text-lead max-w-3xl mx-auto">
                 Alumni and studio partners share the measurable wins they unlocked through cohorts, internships, and bespoke product sprints.
               </p>
             </div>
-            <p className="max-w-sm text-sm text-white/65 leading-relaxed">
+            <p className="max-w-sm mx-auto text-sm text-white/65 leading-relaxed">
               Cohort retrospectives, KPI snapshots, and personal reflections curated from the STACKO community.
             </p>
           </div>

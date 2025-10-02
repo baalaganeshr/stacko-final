@@ -172,9 +172,9 @@ const CourseShowcase = () => {
 
   return (
     <section className="section-shell section-padding">
-      <div className="space-y-10 lg:flex lg:items-end lg:justify-between lg:gap-8">
+      <div className="space-y-10 text-center">
         <Reveal>
-          <div className="max-w-3xl space-y-6">
+          <div className="mx-auto max-w-3xl space-y-6">
             <p className="text-xs uppercase tracking-[0.4em] text-white/55">Course catalog</p>
             <h2 className="balanced-text text-[clamp(2.4rem,4vw,3.4rem)] font-semibold text-white">
               Courses built around real projects
@@ -185,7 +185,7 @@ const CourseShowcase = () => {
           </div>
         </Reveal>
         <Reveal delay={0.05}>
-          <div className="flex w-full flex-col gap-3 sm:items-end sm:text-right">
+          <div className="flex w-full flex-col gap-3 items-center">
             <p className="text-sm text-white/60">
               Glide through the programs or use the controls below.
             </p>

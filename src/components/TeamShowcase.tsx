@@ -44,9 +44,9 @@ const mentorVariants: MentorVariant[] = [
   },
 ];
 const simpleMentorSummaries: Record<number, string> = {
-  1: "Architecting award-winning product experiences and design systems that scale across enterprise teams",
-  2: "Leading AI platform development for Fortune 500 clients while mentoring next-generation engineers", 
-  3: "Designing curriculum frameworks that accelerate professional development and career transitions",
+  1: "Creating modern web applications with React, Node.js, and cutting-edge UI/UX design principles",
+  2: "Building scalable software solutions and architecting robust systems for complex web applications", 
+  3: "Specializing in innovative frontend technologies and crafting engaging interactive digital experiences",
   4: "Building production-grade React applications and mentoring teams through complex technical challenges",
   5: "Converting cutting-edge AI research into deployable business solutions and automation frameworks",
   6: "Strategic talent placement and program development connecting developers with high-impact opportunities",
@@ -236,21 +236,21 @@ const TeamShowcase = () => {
       <Reveal>
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-4xl space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/55">Expert Leadership Team</p>
+            <p className="text-xs uppercase tracking-[0.4em] text-white/55">Meet Our Founders</p>
             <h2 className="balanced-text text-[clamp(2.4rem,4vw,3.6rem)] font-semibold text-white">
-              Industry leaders driving your success
+              Expert developers ready to guide you
             </h2>
             <p className="text-lg leading-relaxed text-white/85 max-w-3xl">
-              Connect with seasoned professionals who've shaped products at Fortune 500 companies. Each mentor brings deep expertise, proven methodologies, and personalized guidance to accelerate your growth.
+              Learn from experienced developers who have built real-world applications. Get personalized mentorship and guidance to accelerate your learning journey.
             </p>
           </div>
           <div className="flex w-full flex-col gap-4 sm:items-end sm:text-right">
             <div className="space-y-2">
               <p className="text-sm font-medium text-white/75">
-                Premium mentorship program
+                Learn from the best
               </p>
               <p className="text-xs text-white/60 max-w-xs">
-                Navigate through our expert leadership profiles using the controls below or scroll to explore.
+                Browse our founder profiles using the controls below or scroll to explore.
               </p>
             </div>
           </div>
@@ -345,15 +345,38 @@ const TeamShowcase = () => {
                         <span className="text-xs font-medium text-white/70">Available for mentoring</span>
                       </div>
                     </div>
-                    <Link
-                      to="/about"
-                      className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600/80 to-purple-600/80 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:from-blue-600 hover:to-purple-600 hover:scale-105 active:scale-95 shadow-lg"
-                    >
-                      Connect
-                      <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
+                    {member.portfolio ? (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          const url = member.portfolio!;
+                          console.log('Button clicked! Opening:', url);
+                          const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                          if (!newWindow) {
+                            console.error('Popup blocked! Trying location.href');
+                            window.location.href = url;
+                          }
+                        }}
+                        style={{ pointerEvents: 'auto', zIndex: 10 }}
+                        className="relative inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600/80 to-purple-600/80 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:from-blue-600 hover:to-purple-600 hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
+                      >
+                        View Portfolio
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </button>
+                    ) : (
+                      <Link
+                        to="/about"
+                        className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600/80 to-purple-600/80 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:from-blue-600 hover:to-purple-600 hover:scale-105 active:scale-95 shadow-lg"
+                      >
+                        Connect
+                        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </motion.article>

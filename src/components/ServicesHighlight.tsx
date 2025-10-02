@@ -14,8 +14,8 @@ const ServicesHighlight = () => {
   return (
     <section className="section-shell section-padding" id="services">
       <Reveal>
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl space-y-5">
+        <div className="flex flex-col gap-8 text-center">
+          <div className="mx-auto max-w-3xl space-y-5">
             <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">Development studio</p>
             <h2 className="balanced-text text-[clamp(2.3rem,3.9vw,3.5rem)] font-semibold text-white">
               Your engineering accelerator for AI copilots, full-stack product sprints, and design systems
@@ -24,7 +24,7 @@ const ServicesHighlight = () => {
               From AI copilots to full product launches, STACKO delivers design, engineering, and momentum in one glassmorphism-fueled experience.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/services" className="btn btn-primary hover-lift inline-flex min-h-[3rem] items-center justify-center rounded-full px-7 text-sm font-semibold uppercase tracking-[0.18em]">
               Explore services
             </Link>

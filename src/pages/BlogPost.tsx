@@ -38,14 +38,14 @@ const BlogPost = () => {
     <div className="flex flex-col gap-[calc(var(--spacing-section)*1.1)] pb-[calc(var(--spacing-section)*1.4)] pt-[calc(var(--spacing-block)*0.6)]">
       <Reveal>
         <div className="section-shell">
-          <article className="glass-surface rounded-[3.6rem] border border-white/12 bg-[linear-gradient(135deg,rgba(107,70,193,0.35),rgba(0,0,0,0.87))] px-10 py-[clamp(3.5rem,6vw,5.5rem)] md:px-16">
+          <article className="glass-surface rounded-[3.6rem] border border-white/12 bg-[linear-gradient(135deg,rgba(107,70,193,0.35),rgba(0,0,0,0.87))] px-10 py-[clamp(3.5rem,6vw,5.5rem)] md:px-16 text-center">
             <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">{post.category}</p>
             <h1 className="mt-6 text-[clamp(2.6rem,4.4vw,3.8rem)] font-semibold text-white">{post.title}</h1>
-            <div className="mt-6 flex flex-wrap gap-4 text-xs text-white/65">
+            <div className="mt-6 flex flex-wrap justify-center gap-4 text-xs text-white/65">
               <span>{post.date}</span>
               <span>{post.readTime}</span>
             </div>
-            <p className="mt-8 text-lead text-white/80">{post.excerpt}</p>
+            <p className="mt-8 text-lead text-white/80 mx-auto max-w-3xl">{post.excerpt}</p>
           </article>
         </div>
       </Reveal>

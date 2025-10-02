@@ -42,14 +42,13 @@ const Header = () => {
     <header className={["sticky top-0 z-50 transition-[background,box-shadow] duration-500", headerSurface].join(" ")}>
       <div className="page-shell flex items-center justify-between gap-6 py-6">
         <Link to="/" className="group flex items-center gap-3">
-          <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.4),rgba(107,70,193,0.1))]">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white">
-              <circle cx="16" cy="14" r="8" fill="currentColor" opacity="0.3"/>
-              <circle cx="12" cy="12" r="2" fill="currentColor"/>
-              <circle cx="20" cy="12" r="2" fill="currentColor"/>
-              <path d="M10 16 C10 16, 12 20, 16 20 C20 20, 22 16, 22 16" stroke="currentColor" strokeWidth="2" fill="none"/>
-              <path d="M8 8 L10 10 M24 8 L22 10" stroke="currentColor" strokeWidth="2"/>
-            </svg>
+          <div className="h-36 w-36 flex items-center justify-center">
+            <img 
+              src="/stacko-final/stacko-logo.svg" 
+              alt="STACKO Logo" 
+              className="h-full w-full object-contain transition-transform group-hover:scale-105"
+              style={{ display: 'block', maxWidth: '100%', maxHeight: '100%' }}
+            />
           </div>
           <div className="leading-tight">
             <p className="text-lg font-semibold tracking-wide text-white transition-colors group-hover:text-secondary-500">

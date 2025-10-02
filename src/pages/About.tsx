@@ -39,14 +39,14 @@ const About = () => {
     <div className="flex flex-col gap-[calc(var(--spacing-section)*1.1)] pb-[calc(var(--spacing-section)*1.4)] pt-[calc(var(--spacing-block)*0.6)]">
       <Reveal>
         <div className="section-shell">
-          <div className="glass-surface relative overflow-hidden rounded-[3.6rem] border border-white/12 bg-[linear-gradient(135deg,rgba(107,70,193,0.4),rgba(0,0,0,0.87))] px-10 py-[clamp(3.5rem,6vw,5.5rem)] md:px-16">
+          <div className="glass-surface relative overflow-hidden rounded-[3.6rem] border border-white/12 bg-[linear-gradient(135deg,rgba(107,70,193,0.4),rgba(0,0,0,0.87))] px-10 py-[clamp(3.5rem,6vw,5.5rem)] md:px-16 text-center">
             <div className="absolute -right-28 top-[-25%] h-80 w-80 rounded-full bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.38),transparent_70%)] blur-[110px]" />
             <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">About STACKO</p>
             <h1 className="mt-6 text-[clamp(2.6rem,4.4vw,3.8rem)] font-semibold text-white">
-              We are a builder collective turned edtech powerhouse
+              Making web development education accessible
             </h1>
-            <p className="mt-6 max-w-3xl text-lead text-white/80">
-              Founded by seven students who refused to choose between learning and shipping, STACKO pairs award-winning programming education with a product studio trusted by startups and enterprises alike.
+            <p className="mt-6 max-w-3xl mx-auto text-lead text-white/80">
+              Founded by three developers passionate about teaching, STACKO helps aspiring developers learn modern web technologies through practical courses and real-world projects.
             </p>
           </div>
         </div>
