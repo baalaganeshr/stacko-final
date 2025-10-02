@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import courses from "@/data/courses";
+import logo from "@/assets/logo.svg";
 
 const primaryLinks = [
   { label: "Services", href: "/services" },
@@ -42,8 +43,8 @@ const Header = () => {
     <header className={["sticky top-0 z-50 transition-[background,box-shadow] duration-500", headerSurface].join(" ")}>
       <div className="page-shell flex items-center justify-between gap-6 py-6">
         <Link to="/" className="group flex items-center gap-3">
-          <div className="relative grid h-12 w-12 place-items-center rounded-2xl bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.4),rgba(107,70,193,0.1))] text-white">
-            <span className="text-xl font-semibold tracking-[0.2em]">S</span>
+          <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-[radial-gradient(circle_at_top,rgba(139,92,246,0.4),rgba(107,70,193,0.1))] p-2">
+            <img src={logo} alt="STACKO Logo" className="h-8 w-8 object-contain" />
           </div>
           <div className="leading-tight">
             <p className="text-lg font-semibold tracking-wide text-white transition-colors group-hover:text-secondary-500">

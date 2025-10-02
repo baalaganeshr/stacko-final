@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "@/assets/logo.svg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,8 +9,8 @@ const Footer = () => {
       <div className="section-shell grid gap-16 py-[clamp(3.5rem,6vw,5.5rem)] lg:grid-cols-[1.4fr_1fr_1fr]">
         <div className="space-y-6">
           <div className="flex items-center gap-4">
-            <div className="grid h-14 w-14 place-items-center rounded-3xl bg-[radial-gradient(circle_at_top,rgba(107,70,193,0.45),rgba(0,0,0,0.4))] text-white">
-              <span className="text-xl font-semibold tracking-[0.2em]">S</span>
+            <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-[radial-gradient(circle_at_top,rgba(107,70,193,0.45),rgba(0,0,0,0.4))] p-3">
+              <img src={logo} alt="STACKO Logo" className="h-8 w-8 object-contain" />
             </div>
             <div>
               <p className="text-xl font-semibold text-white">STACKO</p>
