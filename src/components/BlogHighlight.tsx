@@ -35,19 +35,20 @@ const BlogHighlight = () => {
           <Reveal key={post.id} delay={index * 0.06} className={spans[index % spans.length]}>
             <Link
               to={"/blog/" + post.slug}
-              className="relative glass-surface hover-lift rounded-[2.6rem] border border-white/12 p-10 flex h-full flex-col justify-between"
+              className="relative glass-surface hover-lift rounded-[2.6rem] border border-white/12 p-10"
+              style={{ display: 'flex', flexDirection: 'column', minHeight: '350px' }}
             >
               <div
                 aria-hidden
                 className="pointer-events-none absolute -top-20 left-[-25%] h-48 w-48 blur-[70px] opacity-80"
                 style={{ background: blogAccents[index % blogAccents.length] }}
               />
-              <div className="relative space-y-4">
+              <div className="relative space-y-4" style={{ flexGrow: 1 }}>
                 <p className="text-xs uppercase tracking-[0.34em] text-secondary-500">{post.category}</p>
                 <h3 className="text-[clamp(1.5rem,2.1vw,1.9rem)] font-semibold text-white">{post.title}</h3>
                 <p className="text-sm text-white/70">{post.excerpt}</p>
               </div>
-              <div className="mt-8 flex items-center justify-between text-xs text-white/60">
+              <div className="mt-8 flex items-center justify-between text-xs text-white/60" style={{ marginTop: 'auto', paddingTop: '32px' }}>
                 <span>{post.date}</span>
                 <span>{post.readTime}</span>
               </div>

@@ -4,95 +4,128 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-[calc(var(--spacing-section)*1.1)] border-t border-white/8 bg-black/60 backdrop-blur-2xl">
-      <div className="section-shell grid gap-16 py-[clamp(3.5rem,6vw,5.5rem)] lg:grid-cols-[1.4fr_1fr_1fr]">
-        <div className="space-y-6">
-          <div className="flex items-center gap-4">
-            <div className="h-40 w-40 flex items-center justify-center">
+    <footer style={{ marginTop: '120px', borderTop: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(20px)' }}>
+      <div className="page-shell grid lg:grid-cols-[2fr_1fr_1fr_1fr_1fr]" style={{ gap: '64px', paddingTop: '80px', paddingBottom: '40px' }}>
+        {/* Brand Column */}
+        <div>
+          <div className="flex items-center" style={{ gap: '16px', marginBottom: '24px' }}>
+            <div className="h-12 w-12 flex items-center justify-center flex-shrink-0">
               <img 
                 src="/stacko-final/stacko-logo.svg" 
                 alt="STACKO Logo" 
                 className="h-full w-full object-contain"
-                style={{ display: 'block', maxWidth: '100%', maxHeight: '100%' }}
               />
             </div>
             <div>
-              <p className="text-xl font-semibold text-white">STACKO</p>
-              <p className="text-xs uppercase tracking-[0.34em] text-white/60">Programming Collective</p>
+              <p style={{ fontSize: '28px', fontWeight: 800, color: 'white', lineHeight: 1 }}>STACKO</p>
+              <p className="text-small" style={{ color: 'var(--color-text-muted)', marginTop: '4px' }}>Programming Collective</p>
             </div>
           </div>
-          <p className="max-w-xl text-sm text-white/70">
-            STACKO teaches modern web development through hands-on courses and provides professional development services. Learn to build real applications from experienced developers.
+          <p className="text-small" style={{ maxWidth: '400px', color: 'var(--color-text-secondary)', marginBottom: '24px' }}>
+            STACKO teaches modern web development through hands-on courses and provides professional development services.
           </p>
-          <div className="flex flex-wrap items-center gap-5 text-sm text-white/65">
+          <div className="flex flex-wrap items-center text-small" style={{ gap: '16px', color: 'var(--color-text-secondary)' }}>
             <a className="transition hover:text-white" href="mailto:hello@stacko.dev">
               hello@stacko.dev
             </a>
-            <span className="hidden h-1 w-1 rounded-full bg-white/20 lg:block" />
+            <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }} />
             <p>+1 (415) 555-STACK</p>
           </div>
         </div>
-        <div className="space-y-5 text-sm">
-          <p className="text-xs uppercase tracking-[0.32em] text-secondary-500">Company</p>
-          <div className="grid gap-3 text-white/70">
-            <Link className="transition hover:text-white" to="/about">
+
+        {/* Company Column */}
+        <div>
+          <p className="text-sm uppercase tracking-wider font-semibold" style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>
+            Company
+          </p>
+          <div className="flex flex-col" style={{ gap: '16px' }}>
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/about">
               About & Founders
             </Link>
-            <Link className="transition hover:text-white" to="/blog">
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/blog">
               Programming Blog
             </Link>
-            <Link className="transition hover:text-white" to="/services">
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/services">
               Development Services
             </Link>
-            <Link className="transition hover:text-white" to="/contact">
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/contact">
               Book a Consultation
             </Link>
           </div>
         </div>
-        <div className="space-y-6 text-sm">
-          <p className="text-xs uppercase tracking-[0.32em] text-secondary-500">Stay in the loop</p>
-          <p className="text-white/70">
-            Get early access to cohort launches, internship openings, and dev resources.
+
+        {/* Resources Column */}
+        <div>
+          <p className="text-sm uppercase tracking-wider font-semibold" style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>
+            Resources
           </p>
-          <form className="flex w-full flex-col gap-3 sm:flex-row" action="#" method="post">
-            <input
-              type="email"
-              required
-              placeholder="Enter your email"
-              className="w-full rounded-2xl border border-white/15 bg-white/10 px-5 py-3 text-sm text-white placeholder:text-white/50 focus:border-secondary-500 focus:outline-none focus:ring-2 focus:ring-secondary-500/30"
-            />
-            <button type="submit" className="glass-button hover-lift rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white">
-              <span className="btn btn-primary rounded-2xl px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em]">
-                Join
-              </span>
-            </button>
-          </form>
-          <div className="flex flex-wrap items-center gap-5 text-white/65">
-            <a className="transition hover:text-white" href="#">
+          <div className="flex flex-col" style={{ gap: '16px' }}>
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/courses">
+              Courses
+            </Link>
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/blog">
+              Blog
+            </Link>
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
+              Documentation
+            </a>
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
+              Support
+            </a>
+          </div>
+        </div>
+
+        {/* Legal Column */}
+        <div>
+          <p className="text-sm uppercase tracking-wider font-semibold" style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>
+            Legal
+          </p>
+          <div className="flex flex-col" style={{ gap: '16px' }}>
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/privacy">
+              Privacy
+            </Link>
+            <Link className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} to="/terms">
+              Terms
+            </Link>
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
+              Accessibility
+            </a>
+          </div>
+        </div>
+
+        {/* Social Column */}
+        <div>
+          <p className="text-sm uppercase tracking-wider font-semibold" style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>
+            Connect
+          </p>
+          <div className="flex flex-col" style={{ gap: '16px' }}>
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
               Twitter
             </a>
-            <a className="transition hover:text-white" href="#">
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
               LinkedIn
             </a>
-            <a className="transition hover:text-white" href="#">
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
               GitHub
             </a>
-            <a className="transition hover:text-white" href="#">
+            <a className="text-small transition hover:text-white" style={{ color: 'var(--color-text-secondary)' }} href="#">
               Discord
             </a>
           </div>
         </div>
       </div>
-      <div className="border-t border-white/8 py-8">
-        <div className="section-shell flex flex-col gap-4 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
-          <p>© {currentYear} STACKO Labs. Built for the next generation of creators.</p>
-          <div className="flex flex-wrap gap-4">
-            <a className="transition hover:text-white" href="#">
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '32px', paddingBottom: '32px' }}>
+        <div className="page-shell flex flex-col md:flex-row md:items-center md:justify-between" style={{ gap: '16px' }}>
+          <p className="text-small" style={{ color: 'var(--color-text-muted)' }}>
+            © {currentYear} STACKO Labs. Built for the next generation of creators.
+          </p>
+          <div className="flex flex-wrap text-small" style={{ gap: '24px', color: 'var(--color-text-muted)' }}>
+            <Link className="transition hover:text-white" to="/privacy">
               Privacy
-            </a>
-            <a className="transition hover:text-white" href="#">
+            </Link>
+            <Link className="transition hover:text-white" to="/terms">
               Terms
-            </a>
+            </Link>
             <a className="transition hover:text-white" href="#">
               Accessibility
             </a>

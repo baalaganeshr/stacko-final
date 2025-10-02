@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import TrustIndicators from "@/components/TrustIndicators";
 import CourseShowcase from "@/components/CourseShowcase";
 import StatsShowcase from "@/components/StatsShowcase";
-import SuccessStories from "@/components/SuccessStories";
 import ServicesHighlight from "@/components/ServicesHighlight";
 import TeamShowcase from "@/components/TeamShowcase";
 import BlogHighlight from "@/components/BlogHighlight";
@@ -74,11 +73,6 @@ const Home = () => {
         {/* Statistics with wider spread */}
         <section className="section-padding bg-gradient-to-r from-transparent via-purple-950/10 to-transparent">
           <StatsShowcase />
-        </section>
-
-        {/* Success stories with staggered layout */}
-        <section className="section-padding">
-          <SuccessStories />
         </section>
 
         {/* Services highlight with diagonal elements */}

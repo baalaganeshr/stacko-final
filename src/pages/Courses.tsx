@@ -47,39 +47,43 @@ const Courses = () => {
       </Reveal>
 
       <div className="section-shell">
-        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid-courses" style={{ gap: '32px' }}>
           {courses.map((course, index) => (
             <Reveal key={course.id} delay={index * 0.05}>
-              <div className="glass-surface hover-lift h-full rounded-[3rem] border border-white/14 p-10" id={course.slug}>
-                <div className="flex items-center justify-between text-xs text-white/65">
-                  <span className="rounded-full border border-secondary-500/40 bg-secondary-500/10 px-3 py-1 text-secondary-500">
+              <div className="card hover-lift card-content" style={{ padding: '32px', borderRadius: '24px' }} id={course.slug}>
+                <div className="flex items-center justify-between" style={{ fontSize: '13px', color: 'var(--color-text-muted)', marginBottom: '24px' }}>
+                  <span className="rounded-full border border-secondary-500/40 bg-secondary-500/10 px-3 py-1 text-secondary-500" style={{ fontSize: '12px' }}>
                     {course.level}
                   </span>
                   <span>{course.duration}</span>
                 </div>
-                <h2 className="mt-6 text-[clamp(1.7rem,2.4vw,2.1rem)] font-semibold text-white">{course.title}</h2>
-                <p className="mt-4 text-sm text-white/75">{course.description}</p>
-                <div className="mt-6 grid gap-4 text-sm text-white/75">
-                  <p className="text-xs uppercase tracking-[0.28em] text-secondary-500">Sprint highlights</p>
-                  <ul className="space-y-3">
+                <h3 style={{ fontSize: '28px', fontWeight: 700, marginBottom: '16px' }}>{course.title}</h3>
+                <p className="card-description" style={{ fontSize: '15px', color: 'var(--color-text-secondary)', marginBottom: '24px', lineHeight: '1.6' }}>
+                  {course.description}
+                </p>
+                <div style={{ marginBottom: '24px' }}>
+                  <p className="uppercase tracking-wider font-semibold" style={{ fontSize: '11px', color: 'var(--color-primary)', marginBottom: '16px' }}>
+                    Sprint highlights
+                  </p>
+                  <ul style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     {course.highlights.map((highlight) => (
-                      <li key={highlight} className="flex items-start gap-3">
-                        <span className="mt-[6px] h-2.5 w-2.5 rounded-full bg-secondary-500" />
+                      <li key={highlight} className="flex items-start" style={{ gap: '12px', fontSize: '14px', color: 'var(--color-text-secondary)' }}>
+                        <span className="rounded-full bg-secondary-500" style={{ width: '6px', height: '6px', marginTop: '8px', flexShrink: 0 }} />
                         {highlight}
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-2 text-xs text-secondary-500">
+                <div className="flex flex-wrap" style={{ gap: '8px', marginBottom: '24px' }}>
                   {course.stack.map((tech) => (
-                    <span key={tech} className="rounded-full border border-secondary-500/40 bg-secondary-500/10 px-3 py-1">
+                    <span key={tech} className="rounded-full border border-secondary-500/40 bg-secondary-500/10 px-3 py-1 text-secondary-500" style={{ fontSize: '12px' }}>
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="mt-10 flex items-center justify-between text-sm text-white/80">
-                  <span className="font-semibold text-white">{course.price}</span>
-                  <Link className="text-secondary-500 transition hover:text-secondary-300" to={"/courses/" + course.slug}>
+                <div className="flex items-center justify-between" style={{ paddingTop: '24px', borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: 'auto' }}>
+                  <span style={{ fontSize: '24px', fontWeight: 700 }}>{course.price}</span>
+                  <Link className="text-secondary-500 transition hover:text-secondary-300" to={"/courses/" + course.slug} style={{ fontSize: '14px', fontWeight: 600 }}>
                     View syllabus →
                   </Link>
                 </div>

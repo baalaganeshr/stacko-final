@@ -28,37 +28,32 @@ const Header = () => {
   }, [location.pathname]);
 
   const coursePreviews = useMemo(() => courses.slice(0, 4), []);
-  const headerSurface = scrolled
-    ? "bg-black/85 backdrop-blur-xl shadow-[0_18px_60px_rgba(15,23,42,0.55)]"
-    : "bg-transparent";
 
   const navLinkClass = (isActive: boolean) =>
     [
-      "rounded-full px-5 py-2.5 text-sm font-medium transition-colors",
-      isActive ? "bg-white/15 text-white" : "text-white/65 hover:text-white",
+      "text-base font-medium transition-colors",
+      isActive ? "text-white" : "text-white/70 hover:text-white",
     ].join(" ");
 
   return (
-    <header className={["sticky top-0 z-50 transition-[background,box-shadow] duration-500", headerSurface].join(" ")}>
-      <div className="page-shell flex items-center justify-between gap-6 py-6">
-        <Link to="/" className="group flex items-center gap-3">
-          <div className="h-36 w-36 flex items-center justify-center">
+    <header className={["sticky top-0 z-50 glass-navbar transition-all duration-300", scrolled ? "shadow-lg" : ""].join(" ")}>
+      <div className="page-shell flex items-center justify-between" style={{ paddingTop: '24px', paddingBottom: '24px' }}>
+        <Link to="/" className="group flex items-center" style={{ gap: '16px' }}>
+          <div className="h-12 w-12 flex items-center justify-center flex-shrink-0">
             <img 
               src="/stacko-final/stacko-logo.svg" 
               alt="STACKO Logo" 
               className="h-full w-full object-contain transition-transform group-hover:scale-105"
-              style={{ display: 'block', maxWidth: '100%', maxHeight: '100%' }}
             />
           </div>
-          <div className="leading-tight">
-            <p className="text-lg font-semibold tracking-wide text-white transition-colors group-hover:text-secondary-500">
+          <div className="leading-none">
+            <p className="font-extrabold tracking-tight text-white transition-colors group-hover:text-primary" style={{ fontWeight: 800, fontSize: '28px' }}>
               STACKO
             </p>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/55">Build · Learn · Deploy</p>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-2 lg:flex">
+        <nav className="hidden items-center lg:flex" style={{ gap: '40px' }}>
           <div
             className="relative"
             onMouseEnter={() => setCoursesOpen(true)}
@@ -106,15 +101,16 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center lg:flex" style={{ gap: '32px' }}>
           <NavLink to="/login" className={({ isActive }) => navLinkClass(isActive)}>
             Login
           </NavLink>
           <Link
             to="/signup"
-            className="btn btn-primary rounded-full px-6 py-2.5 text-sm font-semibold uppercase tracking-[0.18em]"
+            className="btn btn-primary"
+            style={{ padding: '12px 24px', borderRadius: '8px', fontSize: '15px', fontWeight: 600 }}
           >
-            Start learning free
+            Start Learning
           </Link>
         </div>
 

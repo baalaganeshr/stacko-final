@@ -5,35 +5,40 @@ import stats from "@/data/stats";
 const StatsShowcase = () => {
   return (
     <section className="section-padding">
-      {/* Full-width container for stats */}
       <div className="page-shell">
         <Reveal>
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl space-y-6">
-              <p className="text-xs uppercase tracking-[0.4em] text-secondary-500">Proof of momentum</p>
-              <h2 className="balanced-text text-[clamp(2.4rem,4.2vw,3.8rem)] font-semibold text-white">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between" style={{ gap: '32px', marginBottom: '80px' }}>
+            <div style={{ maxWidth: '600px' }}>
+              <p className="text-sm uppercase tracking-wider font-semibold" style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>
+                Proof of momentum
+              </p>
+              <h2 style={{ marginBottom: '24px' }}>
                 Outcomes our founders obsess over
               </h2>
-              <p className="text-lead max-w-2xl">
+              <p className="text-lead">
                 STACKO blends education and delivery to fuel careers and products. Below is the measurable momentum learners and partner teams unlock with STACKO.
               </p>
             </div>
-            <p className="max-w-sm text-sm text-white/60">
+            <p className="text-small" style={{ maxWidth: '400px', color: 'var(--color-text-muted)' }}>
               Multi-year data across cohorts, custom builds, and internship placements. Updated quarterly.
             </p>
           </div>
         </Reveal>
         
-        {/* Statistics grid with generous spacing */}
-        <div className="mt-20 grid gap-12 md:grid-cols-2 xl:grid-cols-4 xl:gap-16">
+        {/* Statistics grid - 4 columns with 40px gaps */}
+        <div className="grid-stats">
           {stats.map((stat, index) => (
             <Reveal key={stat.id} delay={index * 0.08}>
-              <div className="glass-surface hover-lift cursor-interactive h-full rounded-[3rem] border border-white/12 p-12 text-center">
-                <div className="stat-emphasis bg-gradient-to-br from-white via-white to-white/80 bg-clip-text text-transparent">
+              <div className="card text-center">
+                <div className="text-gradient" style={{ fontSize: '64px', fontWeight: 900, lineHeight: 1, marginBottom: '16px' }}>
                   <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
                 </div>
-                <p className="mt-8 text-lg font-semibold text-white/95">{stat.label}</p>
-                <p className="mt-4 text-sm leading-relaxed text-white/70">{stat.description}</p>
+                <p style={{ fontSize: '18px', fontWeight: 700, marginBottom: '8px', color: 'var(--color-text-primary)' }}>
+                  {stat.label}
+                </p>
+                <p className="text-small" style={{ color: 'var(--color-text-secondary)' }}>
+                  {stat.description}
+                </p>
               </div>
             </Reveal>
           ))}

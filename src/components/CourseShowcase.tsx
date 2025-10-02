@@ -134,13 +134,30 @@ const CourseShowcase = () => {
 
   const scrollToIndex = useCallback((index: number) => {
     const node = sliderRef.current;
-    if (!node) return;
+    if (!node || index < 0 || index >= slides.length) return;
+    
     const cards = node.querySelectorAll<HTMLElement>('[data-course-card="true"]');
     const target = cards[index];
+    
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      // Calculate the exact scroll position to center the card
+      const containerWidth = node.clientWidth;
+      const targetRect = target.getBoundingClientRect();
+      const containerRect = node.getBoundingClientRect();
+      const targetCenter = targetRect.left + targetRect.width / 2 - containerRect.left;
+      const containerCenter = containerWidth / 2;
+      const scrollOffset = targetCenter - containerCenter;
+      
+      // Smooth scroll to the calculated position
+      node.scrollTo({
+        left: node.scrollLeft + scrollOffset,
+        behavior: 'smooth'
+      });
+      
+      // Update active index immediately for better UX
+      setActiveIndex(index);
     }
-  }, []);
+  }, [slides.length]);
 
   const handleNavigate = useCallback(
     (direction: "prev" | "next") => {
@@ -171,26 +188,28 @@ const CourseShowcase = () => {
   const progressPercent = slides.length <= 1 ? 100 : (progress || activeIndex / (slides.length - 1)) * 100;
 
   return (
-    <section className="section-shell section-padding">
-      <div className="space-y-10 text-center">
-        <Reveal>
-          <div className="mx-auto max-w-3xl space-y-6">
-            <p className="text-xs uppercase tracking-[0.4em] text-white/55">Course catalog</p>
-            <h2 className="balanced-text text-[clamp(2.4rem,4vw,3.4rem)] font-semibold text-white">
-              Courses built around real projects
-            </h2>
-            <p className="text-lead">
-              Pick a course that fits your team. Each one blends short lessons, build time, and weekly feedback so you always know the next step.
-            </p>
-          </div>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <div className="flex w-full flex-col gap-3 items-center">
-            <p className="text-sm text-white/60">
+    <section className="section-padding">
+      <div className="page-shell">
+        <div className="text-center" style={{ marginBottom: '64px' }}>
+          <Reveal>
+            <div className="mx-auto" style={{ maxWidth: '700px' }}>
+              <p className="text-sm uppercase tracking-wider font-semibold" style={{ color: 'var(--color-primary)', marginBottom: '16px' }}>
+                Course catalog
+              </p>
+              <h2 style={{ marginBottom: '24px' }}>
+                Courses built around real projects
+              </h2>
+              <p className="text-lead">
+                Pick a course that fits your team. Each one blends short lessons, build time, and weekly feedback so you always know the next step.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <p className="text-small" style={{ marginTop: '24px', color: 'var(--color-text-muted)' }}>
               Glide through the programs or use the controls below.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </div>
 
       <div className="relative mt-12">
@@ -198,23 +217,32 @@ const CourseShowcase = () => {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#05060d] via-[#05060d]/65 to-transparent lg:w-24" />
         <div
           ref={sliderRef}
-          className="hide-scrollbar -mx-4 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 pl-4 pr-8 sm:-mx-6 sm:pl-6 sm:pr-10 lg:-mx-8 lg:pl-8 lg:pr-16"
-
+          className="hide-scrollbar flex snap-x snap-mandatory gap-8 overflow-x-auto pb-6"
+          style={{ 
+            scrollPaddingLeft: '50%', 
+            scrollPaddingRight: '50%',
+            paddingLeft: 'max(24px, calc((100vw - 1400px) / 2))',
+            paddingRight: 'max(24px, calc((100vw - 1400px) / 2))'
+          }}
         >
           {slides.map(({ course, variant }, index) => {
             const isActive = index === activeIndex;
             return (
-              <Reveal key={course.id} delay={index * 0.04} className="snap-center">
+              <Reveal key={course.id} delay={index * 0.04}>
                 <motion.article
                   data-course-card="true"
                   initial={false}
                   animate={{
                     scale: isActive ? 1 : 0.96,
-                    opacity: isActive ? 1 : 0.8,
-                    translateY: isActive ? 0 : 12,
+                    opacity: isActive ? 1 : 0.85,
                   }}
-                  transition={{ duration: 0.45, ease: "easeOut" }}
-                  className={`group relative flex h-full w-[min(88vw,22rem)] flex-col rounded-[24px] border p-6 backdrop-blur transition-all duration-300 ${variant.surface} ${isActive ? 'ring-1 ring-white/20' : ''}`}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className={`snap-center group relative flex h-full flex-col rounded-[24px] border p-8 backdrop-blur transition-all duration-300 ${variant.surface} ${isActive ? 'ring-2 ring-white/30 shadow-2xl' : 'hover:ring-1 hover:ring-white/15'}`}
+                  style={{ 
+                    minWidth: '380px', 
+                    maxWidth: '420px',
+                    flexShrink: 0,
+                  }}
                 >
                   {variant.sheen && (
                     <div className={`pointer-events-none absolute inset-0 rounded-[24px] ${variant.sheen}`} />
