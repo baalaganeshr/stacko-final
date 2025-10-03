@@ -10,14 +10,22 @@ export type TeamMember = {
 const team: TeamMember[] = [
   {
     id: 1,
-    name: "Baalaganesh",
-    title: "Full-Stack Developer & UI/UX Designer",
+    name: "Baala Ganesh R",
+    title: "Co-Founder & Full-Stack Developer",
     specialty: "React, Node.js & Modern Web Development",
-    bio: "Creating modern web applications with React, Node.js, and cutting-edge UI/UX design principles",
+    bio: "Co-founder leading technical innovation and creating modern web applications with cutting-edge technologies",
     portfolio: "https://baalaganeshr.github.io/new-portfolio/",
   },
   {
     id: 2,
+    name: "Madhan Kumar B",
+    title: "Co-Founder & Software Engineer",
+    specialty: "Full-stack Development & Product Strategy",
+    bio: "Co-founder driving product vision and building scalable software solutions for complex challenges",
+    portfolio: "https://madhan-kumar-b.github.io/mkportfolio/",
+  },
+  {
+    id: 3,
     name: "Harikrishnan A",
     title: "Software Engineer & Product Developer",
     specialty: "Full-stack development & System Architecture",
@@ -25,7 +33,7 @@ const team: TeamMember[] = [
     portfolio: "https://baalaganeshr.github.io/Harikrishnan-A/",
   },
   {
-    id: 3,
+    id: 4,
     name: "Aathan J",
     title: "Frontend Developer & Creative Technologist",
     specialty: "Modern Frontend & Interactive Experiences",
