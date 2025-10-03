@@ -93,10 +93,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15, duration: 0.8, ease: "easeOut" }}
-            className="flex-1 rounded-3xl border border-white/10 bg-[linear-gradient(150deg,rgba(17,24,39,0.9),rgba(15,23,42,0.8))] p-8 backdrop-blur-lg shadow-xl transition-all duration-300 hover:border-white/15 flex flex-col"
+            className="hero-code-block flex-1 rounded-3xl border border-white/10 bg-[linear-gradient(150deg,rgba(17,24,39,0.9),rgba(15,23,42,0.8))] backdrop-blur-lg shadow-xl transition-all duration-300 hover:border-white/15 flex flex-col"
+            style={{ padding: '32px' }}
           >
             <p className="text-xs uppercase tracking-[0.32em] text-secondary-500 font-bold">Programs launching this quarter</p>
-            <div className="mt-6 space-y-4 text-sm text-white/70">
+            <div className="mt-6 space-y-4 text-white/70" style={{ fontSize: '14px', lineHeight: '1.8' }}>
               {programTracks.map((track) => (
                 <div key={track} className="flex items-start gap-3">
                   <span className="mt-1.5 h-2 w-2 rounded-full bg-secondary-500 shadow-lg shadow-purple-500/50" />
